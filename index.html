@@ -1,132 +1,246 @@
-Pega esto completo en index.html. Ya está ajustado para que los gráficos salgan desde la carpeta graficos0/ y las páginas regionales desde regiones/.
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="author" content="Erick Liu">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>ANÚLEMELO | El voto que no elige presidente</title>
+
   <meta
     name="description"
     content="Narración gráfica sobre la evolución de los votos nulos y blancos en elecciones presidenciales chilenas entre 1989 y 2025."
   >
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Libre+Franklin:wght@700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Libre+Franklin:wght@700;800&family=Ultra&display=swap"
     rel="stylesheet"
   >
+
   <style>
     :root {
-      --bg: #f3f4f6;
-      --paper: #ffffff;
-      --text: #111827;
-      --muted: #4b5563;
-      --soft: #e5e7eb;
-      --red: #d94841;
-      --red-dark: #9f2f2a;
-      --cream: #fff7ed;
+      --crema: #f7ead6;
+      --crema-2: #fff7e8;
+      --papel: #fffaf1;
+      --tinta: #171717;
+      --gris: #5f5a52;
+      --gris-suave: #d8cbb7;
+      --rojo: #b94a42;
+      --rojo-oscuro: #7f2d2a;
+      --naranja: #ef8a3a;
+      --mostaza: #e3b448;
+      --negro: #121212;
       --max: 1120px;
     }
+
     * {
       box-sizing: border-box;
     }
+
     html {
       scroll-behavior: smooth;
     }
+
     body {
       margin: 0;
       font-family: "DM Sans", system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      background: var(--crema);
+      color: var(--tinta);
       line-height: 1.65;
     }
-    a {
-      color: var(--red-dark);
-      text-decoration: none;
-      font-weight: 700;
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(0,0,0,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.018) 1px, transparent 1px);
+      background-size: 34px 34px;
+      opacity: 0.45;
+      z-index: -1;
     }
+
+    a {
+      color: var(--rojo-oscuro);
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    p {
+      margin: 0 0 18px;
+      color: var(--gris);
+      font-size: 1.04rem;
+    }
+
     h1,
     h2,
     h3 {
-      font-family: "Libre Franklin", system-ui, sans-serif;
-      line-height: 1.05;
       margin: 0;
-      color: var(--text);
+      color: var(--tinta);
+      line-height: 1.05;
     }
-    p {
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 1.04rem;
+
+    h1 {
+      font-family: "Ultra", "Libre Franklin", serif;
+      font-size: clamp(3.4rem, 9vw, 8.2rem);
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
     }
+
+    h2 {
+      font-family: "Libre Franklin", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 4.2vw, 3.4rem);
+      letter-spacing: -0.045em;
+      margin-bottom: 18px;
+    }
+
+    h3 {
+      font-family: "Libre Franklin", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .top-stripes {
+      height: 24px;
+      background:
+        linear-gradient(
+          to bottom,
+          var(--rojo) 0 7px,
+          var(--crema) 7px 10px,
+          var(--naranja) 10px 17px,
+          var(--crema) 17px 20px,
+          var(--rojo) 20px 24px
+        );
+    }
+
     .hero {
-      min-height: 94vh;
+      min-height: 92vh;
       display: grid;
       place-items: center;
-      padding: 84px 22px;
-      color: white;
+      padding: 72px 22px 86px;
       text-align: center;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(217, 72, 65, 0.24), transparent 32%),
-        radial-gradient(circle at 80% 10%, rgba(100, 116, 139, 0.26), transparent 30%),
-        linear-gradient(135deg, #0f172a, #1f2937 58%, #3f1d1a);
-      overflow: hidden;
       position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 82%, rgba(185, 74, 66, 0.16), transparent 28%),
+        radial-gradient(circle at 84% 14%, rgba(227, 180, 72, 0.26), transparent 24%),
+        var(--crema-2);
+      border-bottom: 4px solid var(--rojo);
     }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -65px;
+      top: 70px;
+      border-radius: 50%;
+      background: rgba(239, 138, 58, 0.22);
+    }
+
     .hero::after {
       content: "";
       position: absolute;
-      inset: auto 0 0 0;
-      height: 160px;
-      background: linear-gradient(to bottom, transparent, var(--bg));
-      pointer-events: none;
+      width: 170px;
+      height: 170px;
+      left: -54px;
+      bottom: 60px;
+      border-radius: 50%;
+      background: rgba(185, 74, 66, 0.16);
     }
+
     .hero-inner {
-      max-width: 960px;
       position: relative;
       z-index: 1;
+      max-width: 960px;
     }
+
+    .logo-mark {
+      width: 82px;
+      height: 118px;
+      margin: 0 auto 24px;
+      position: relative;
+      border-radius: 18px 18px 10px 10px;
+      background: #eadcca;
+      border: 3px solid #d1bca0;
+      box-shadow: 0 12px 0 rgba(0,0,0,0.04);
+    }
+
+    .logo-mark::before {
+      content: "";
+      position: absolute;
+      left: -14px;
+      right: -14px;
+      top: 20px;
+      height: 30px;
+      background: var(--rojo);
+      border-radius: 10px;
+    }
+
+    .logo-mark::after {
+      content: "X";
+      position: absolute;
+      left: 50%;
+      top: -10px;
+      transform: translateX(-50%);
+      color: var(--rojo-oscuro);
+      font-weight: 800;
+      font-size: 2.4rem;
+      font-family: "Libre Franklin", sans-serif;
+    }
+
     .tag {
       display: inline-block;
-      padding: 8px 14px;
-      border: 1px solid rgba(255,255,255,0.35);
+      padding: 8px 16px;
+      border: 2px solid var(--rojo);
       border-radius: 999px;
-      font-size: 0.88rem;
-      letter-spacing: 0.04em;
+      background: #f5d9d2;
+      color: var(--rojo-oscuro);
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      margin-bottom: 28px;
-      color: #f3f4f6;
+      margin-bottom: 24px;
     }
-    h1 {
-      font-size: clamp(3.6rem, 10vw, 8.6rem);
-      font-weight: 800;
-      letter-spacing: -0.085em;
-      margin-bottom: 20px;
-      color: white;
+
+    .hero-title {
+      display: inline-block;
+      padding-bottom: 14px;
+      border-bottom: 4px solid var(--rojo);
+      margin-bottom: 24px;
     }
+
     .hero h2 {
-      font-size: clamp(1.45rem, 3.2vw, 2.8rem);
       max-width: 820px;
-      margin: 0 auto 28px;
-      font-weight: 800;
-      color: white;
+      margin: 0 auto 26px;
+      font-size: clamp(1.45rem, 3vw, 2.4rem);
     }
+
     .hero p {
-      max-width: 790px;
+      max-width: 820px;
       margin: 0 auto;
-      color: #d1d5db;
       font-size: 1.12rem;
+      color: #3f3931;
     }
+
     nav {
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--soft);
+      background: rgba(255, 247, 232, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--gris-suave);
     }
-    nav .nav-inner {
+
+    .nav-inner {
       max-width: var(--max);
       margin: 0 auto;
       padding: 12px 22px;
@@ -136,129 +250,151 @@ Pega esto completo en index.html. Ya está ajustado para que los gráficos salga
       white-space: nowrap;
       font-size: 0.92rem;
     }
+
     nav a {
-      color: #374151;
-      font-weight: 700;
+      color: var(--tinta);
+      font-weight: 800;
     }
+
     nav a:hover {
-      color: var(--red-dark);
+      color: var(--rojo);
     }
+
     section {
       padding: 78px 22px;
     }
+
     .wrap {
       max-width: var(--max);
       margin: 0 auto;
     }
+
     .wide {
       max-width: 930px;
     }
+
     .chapter {
       display: grid;
-      grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.45fr);
-      gap: 48px;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.45fr);
+      gap: 46px;
       align-items: start;
     }
+
     .chapter-text {
       position: sticky;
-      top: 90px;
+      top: 92px;
     }
+
     .eyebrow {
-      color: var(--red);
+      display: inline-block;
+      color: var(--rojo-oscuro);
+      background: #f4d2cd;
+      border: 2px solid var(--rojo);
+      border-radius: 999px;
+      padding: 6px 12px;
       text-transform: uppercase;
       font-weight: 800;
-      letter-spacing: 0.08em;
-      font-size: 0.82rem;
-      margin-bottom: 12px;
+      letter-spacing: 0.07em;
+      font-size: 0.78rem;
+      margin-bottom: 14px;
     }
-    h2 {
-      font-size: clamp(2rem, 4vw, 3.25rem);
-      margin-bottom: 18px;
-      letter-spacing: -0.04em;
-    }
-    h3 {
-      font-size: 1.35rem;
-      margin: 24px 0 10px;
-      letter-spacing: -0.02em;
-    }
+
     .lead {
       font-size: 1.22rem;
-      color: #374151;
+      color: #3f3931;
     }
-    .card,
+
+    .paper-card,
     .chart-card {
-      background: var(--paper);
-      border: 1px solid var(--soft);
-      border-radius: 24px;
-      box-shadow: 0 18px 50px rgba(17, 24, 39, 0.07);
+      background: var(--papel);
+      border: 2px solid var(--gris-suave);
+      border-radius: 18px;
+      box-shadow: 8px 8px 0 rgba(127, 45, 42, 0.12);
     }
-    .card {
+
+    .paper-card {
       padding: 28px;
     }
+
     .chart-card {
       padding: 18px;
     }
+
     .caption {
       margin: 12px 4px 0;
-      color: #6b7280;
+      color: #6d6256;
       font-size: 0.92rem;
     }
-    .didactic {
-      background: var(--cream);
-      border-top: 1px solid #fed7aa;
-      border-bottom: 1px solid #fed7aa;
+
+    .quote-box {
+      margin: 30px 0 0;
+      padding: 28px;
+      background: #f2cfc9;
+      border-left: 8px solid var(--rojo);
+      border-radius: 12px;
     }
+
+    .quote-box p {
+      margin: 0;
+      color: var(--tinta);
+      font-size: 1.18rem;
+      font-weight: 800;
+    }
+
+    .didactic {
+      background:
+        linear-gradient(to bottom, var(--rojo) 0 6px, transparent 6px),
+        var(--crema);
+      border-top: 4px solid var(--naranja);
+      border-bottom: 4px solid var(--rojo);
+    }
+
     .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
       margin-top: 28px;
     }
+
     .mini-card {
-      background: white;
-      border: 1px solid #fed7aa;
-      border-radius: 20px;
+      background: var(--papel);
+      border: 2px solid var(--gris-suave);
+      border-radius: 16px;
       padding: 22px;
+      box-shadow: 6px 6px 0 rgba(227, 180, 72, 0.18);
     }
+
     .mini-card strong {
       display: block;
-      color: var(--red-dark);
+      color: var(--rojo-oscuro);
       margin-bottom: 8px;
-      font-size: 1.08rem;
+      font-size: 1.12rem;
     }
+
     .formula {
       margin-top: 26px;
       padding: 20px;
-      background: #111827;
+      background: var(--negro);
       color: white;
-      border-radius: 18px;
+      border-radius: 12px;
       font-weight: 800;
       text-align: center;
       font-size: 1.04rem;
     }
+
     .formula span {
-      color: #fca5a5;
+      color: var(--mostaza);
     }
-    .quote-box {
-      background: #111827;
-      color: white;
-      border-radius: 26px;
-      padding: 34px;
-      margin: 28px 0;
-    }
-    .quote-box p {
-      color: #e5e7eb;
-      font-size: 1.2rem;
-      margin: 0;
-    }
+
     .chart-frame {
       width: 100%;
       height: 560px;
-      border: 1px solid var(--soft);
-      border-radius: 18px;
+      border: 2px solid var(--gris-suave);
+      border-radius: 12px;
       overflow: hidden;
       background: white;
     }
+
     .chart-frame iframe {
       width: 100%;
       height: 100%;
@@ -266,124 +402,144 @@ Pega esto completo en index.html. Ya está ajustado para que los gráficos salga
       background: white;
       display: block;
     }
+
     .chart-frame.short {
       height: 500px;
     }
+
     .chart-frame.wide {
       height: 650px;
     }
-    .chart-frame.tall {
-      height: 740px;
-    }
-    .chart-frame.cartogram {
-      height: 840px;
-    }
+
     .region-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 14px;
       margin-top: 24px;
     }
+
     .region-grid a {
       display: block;
       padding: 14px 16px;
-      background: white;
-      border: 1px solid var(--soft);
+      background: var(--papel);
+      border: 2px solid var(--gris-suave);
       border-radius: 14px;
-      color: var(--text);
-      font-weight: 700;
+      color: var(--tinta);
+      font-weight: 800;
+      box-shadow: 4px 4px 0 rgba(185, 74, 66, 0.10);
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
+
     .region-grid a:hover {
       transform: translateY(-2px);
-      border-color: #fca5a5;
+      border-color: var(--rojo);
     }
-    .note {
-      padding: 16px 18px;
-      background: #fff7ed;
-      border: 1px solid #fed7aa;
-      border-radius: 16px;
-      color: #7c2d12;
-      font-size: 0.96rem;
-      margin-top: 16px;
-    }
+
     .method {
-      background: #111827;
+      background: var(--negro);
       color: white;
+      border-top: 8px solid var(--rojo);
     }
-    .method p,
-    .method li {
-      color: #d1d5db;
-    }
+
     .method h2,
     .method h3 {
       color: white;
     }
-    .method .eyebrow {
-      color: #fca5a5;
+
+    .method p,
+    .method li {
+      color: #d7d0c6;
     }
+
+    .method .eyebrow {
+      background: transparent;
+      border-color: var(--mostaza);
+      color: var(--mostaza);
+    }
+
+    .method .formula {
+      background: #2a2a2a;
+      border: 1px solid #444;
+    }
+
     footer {
-      padding: 34px 22px;
-      background: #020617;
-      color: #9ca3af;
+      padding: 36px 22px;
+      background: #050505;
+      color: #bfb7ac;
       text-align: center;
       font-size: 0.92rem;
+      border-top: 4px solid var(--naranja);
     }
+
     @media (max-width: 920px) {
       .chapter {
         grid-template-columns: 1fr;
       }
+
       .chapter-text {
         position: static;
       }
+
       .cards {
         grid-template-columns: 1fr;
       }
+
       .region-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
+
     @media (max-width: 700px) {
       section {
         padding: 58px 18px;
       }
+
       .chart-frame {
         height: 480px;
       }
+
       .chart-frame.short {
         height: 440px;
       }
+
       .chart-frame.wide {
         height: 560px;
       }
-      .chart-frame.tall {
-        height: 620px;
-      }
-      .chart-frame.cartogram {
-        height: 700px;
-      }
-      .card,
+
+      .paper-card,
       .chart-card {
-        border-radius: 18px;
-        padding: 16px;
+        border-radius: 16px;
+        box-shadow: 5px 5px 0 rgba(127, 45, 42, 0.12);
       }
     }
+
     @media (max-width: 520px) {
       .region-grid {
         grid-template-columns: 1fr;
       }
+
       .hero {
         min-height: 88vh;
       }
     }
   </style>
 </head>
+
 <body>
+
+  <div class="top-stripes"></div>
+
   <header class="hero" id="inicio">
     <div class="hero-inner">
-      <div class="tag">Elecciones presidenciales chilenas · 1989–2025</div>
-      <h1>ANÚLEMELO</h1>
+      <div class="logo-mark" aria-hidden="true"></div>
+      <div class="tag">Voto nulo y blanco en Chile · 1989–2025</div>
+
+      <div class="hero-title">
+        <h1>ANÚLEMELO</h1>
+      </div>
+
       <h2>El voto que no elige presidente</h2>
+
       <p>
         La segunda vuelta presidencial de 2025 entre José Antonio Kast y Jeannette Jara
         instaló una sospecha para este proyecto: cuando la oferta electoral se concentra
@@ -393,6 +549,7 @@ Pega esto completo en index.html. Ya está ajustado para que los gráficos salga
       </p>
     </div>
   </header>
+
   <nav>
     <div class="nav-inner">
       <a href="#sospecha">Sospecha</a>
@@ -406,19 +563,23 @@ Pega esto completo en index.html. Ya está ajustado para que los gráficos salga
       <a href="#metodologia">Metodología</a>
     </div>
   </nav>
+
   <section id="sospecha">
     <div class="wrap wide">
       <div class="eyebrow">Punto de partida</div>
       <h2>De una sospecha a una lectura más matizada</h2>
+
       <p class="lead">
         ANÚLEMELO no parte de una certeza, sino de una hipótesis: si una elección se
         vuelve más polarizada, el voto que no elige podría volverse más visible.
       </p>
+
       <p>
         El caso de 2025 sirve como punto de entrada, pero la respuesta no aparece solo
         en esa elección. Para entender si el fenómeno crece, se mantiene o cambia de
         forma, es necesario mirar la serie completa desde el retorno a la democracia.
       </p>
+
       <div class="quote-box">
         <p>
           El hallazgo no es una explosión del voto nulo y blanco, sino una señal más
@@ -427,54 +588,65 @@ Pega esto completo en index.html. Ya está ajustado para que los gráficos salga
       </div>
     </div>
   </section>
+
   <section class="didactic" id="didactico">
     <div class="wrap">
       <div class="eyebrow">Antes de mirar los datos</div>
       <h2>¿Qué estamos contando?</h2>
+
       <p class="lead">
         No todos los votos que entran a la urna eligen presidente. Algunos se suman
         a una candidatura; otros participan del proceso, pero no se convierten en una
         preferencia válida.
       </p>
+
       <div class="cards">
         <div class="mini-card">
           <strong>Voto válido</strong>
           Marca correctamente una candidatura y sirve para definir el resultado de la elección.
         </div>
+
         <div class="mini-card">
           <strong>Voto blanco</strong>
           No marca ninguna candidatura. La persona participa, pero no expresa una preferencia presidencial.
         </div>
+
         <div class="mini-card">
           <strong>Voto nulo</strong>
           Tiene una marca que no permite reconocer una preferencia válida. Participa, pero no elige presidente.
         </div>
       </div>
+
       <p style="margin-top: 26px;">
         Un voto nulo o blanco no permite saber exactamente qué quiso expresar una persona.
         Puede ser protesta, error, desinformación, indiferencia o rechazo a las opciones
         disponibles. Por eso, este proyecto no busca adivinar intenciones individuales:
         observa cuándo y dónde aumenta el voto que participa, pero no elige.
       </p>
+
       <div class="formula">
         <span>% nulos + blancos</span> = (votos nulos + votos blancos) / votos emitidos × 100
       </div>
     </div>
   </section>
+
   <section id="nacional">
     <div class="wrap chapter">
       <div class="chapter-text">
         <div class="eyebrow">1 · Serie histórica</div>
         <h2>El voto que no elige no explota, pero cambia</h2>
+
         <p>
           La serie histórica obliga a matizar la sospecha inicial. En Chile, los votos
           nulos y blancos no muestran un despegue sostenido ni niveles catastróficos.
         </p>
+
         <p>
           Hay aumentos y bajas, pero no una explosión permanente. El hallazgo no es una
           crisis evidente, sino una señal más sutil que cambia con el contexto electoral.
         </p>
       </div>
+
       <div class="chart-card">
         <div class="chart-frame">
           <iframe
@@ -483,28 +655,33 @@ Pega esto completo en index.html. Ya está ajustado para que los gráficos salga
             loading="lazy">
           </iframe>
         </div>
+
         <p class="caption">
           Porcentaje de votos nulos y blancos sobre votos emitidos en elecciones presidenciales chilenas.
         </p>
       </div>
     </div>
   </section>
+
   <section id="sistema">
     <div class="wrap chapter">
       <div class="chapter-text">
         <div class="eyebrow">2 · Reglas del voto</div>
         <h2>No todos los años se comparan igual</h2>
+
         <p>
           Entre 1989 y 2009, el voto era obligatorio para quienes estaban inscritos.
           Luego vino el voto voluntario con inscripción automática. En 2025, la elección
           presidencial vuelve a desarrollarse con voto obligatorio.
         </p>
+
         <p>
           Estos cambios importan porque modifican el universo de votantes. No significa
           lo mismo un porcentaje de votos nulos o blancos en una elección voluntaria que
           en una elección donde el padrón está obligado a participar.
         </p>
       </div>
+
       <div class="chart-card">
         <div class="chart-frame">
           <iframe
@@ -513,22 +690,26 @@ Pega esto completo en index.html. Ya está ajustado para que los gráficos salga
             loading="lazy">
           </iframe>
         </div>
+
         <p class="caption">
           Cambios del sistema electoral y evolución de votos nulos y blancos.
         </p>
       </div>
     </div>
   </section>
+
   <section id="vueltas">
     <div class="wrap chapter">
       <div class="chapter-text">
         <div class="eyebrow">3 · Primera y segunda vuelta</div>
         <h2>Cuando la oferta se reduce</h2>
+
         <p>
           La comparación entre primera y segunda vuelta es una de las claves del proyecto.
           En primera vuelta, el electorado suele tener más alternativas. En segunda vuelta,
           la decisión se reduce a dos opciones.
         </p>
+
         <p>
           Cuando esas dos opciones representan polos políticos más marcados, puede aumentar
           la distancia entre una parte de los votantes y la oferta disponible. El voto nulo
@@ -536,6 +717,7 @@ Pega esto completo en index.html. Ya está ajustado para que los gráficos salga
           participaron sin adherir a ninguna candidatura.
         </p>
       </div>
+
       <div class="chart-card">
         <div class="chart-frame short">
           <iframe
@@ -544,28 +726,33 @@ Pega esto completo en index.html. Ya está ajustado para que los gráficos salga
             loading="lazy">
           </iframe>
         </div>
+
         <p class="caption">
           Diferencia en puntos porcentuales entre primera y segunda vuelta presidencial.
         </p>
       </div>
     </div>
   </section>
+
   <section id="polarizacion">
     <div class="wrap chapter">
       <div class="chapter-text">
         <div class="eyebrow">4 · Oferta presidencial</div>
         <h2>La polarización como contexto</h2>
+
         <p>
           Para analizar la polarización, el proyecto construye una clasificación ideológica
           de candidaturas. No basta con decir que una elección fue “moderada” o “extrema”:
           hay que explicar cómo se lee la oferta presidencial de cada año.
         </p>
+
         <p>
           Esta clasificación no se presenta como una verdad absoluta, sino como una herramienta
           periodística y metodológica. La polarización no explica por sí sola los votos nulos
           y blancos, pero ayuda a leer el clima de cada elección.
         </p>
       </div>
+
       <div class="chart-card">
         <div class="chart-frame short">
           <iframe
@@ -574,26 +761,31 @@ Pega esto completo en index.html. Ya está ajustado para que los gráficos salga
             loading="lazy">
           </iframe>
         </div>
+
         <p class="caption">
           Puntaje de polarización de la oferta presidencial por elección y vuelta.
         </p>
       </div>
     </div>
   </section>
+
   <section id="territorio">
     <div class="wrap">
       <div class="eyebrow">5 · Territorio</div>
       <h2>El termómetro no marca igual en todo Chile</h2>
+
       <p class="lead">
         La mirada nacional puede ocultar diferencias internas. Los votos nulos y blancos
         no se comportan necesariamente igual en todas las regiones.
       </p>
+
       <p>
         Algunas se mantienen cerca del promedio, otras se alejan y ciertas zonas muestran
         aumentos más fuertes en elecciones específicas. Por eso, el mapa regional no funciona
         solo como decoración: sirve para observar si el termómetro electoral marca la misma
         temperatura en todo el país.
       </p>
+
       <div class="chart-card">
         <div class="chart-frame wide">
           <iframe
@@ -602,81 +794,29 @@ Pega esto completo en index.html. Ya está ajustado para que los gráficos salga
             loading="lazy">
           </iframe>
         </div>
+
         <p class="caption">
           Heatmap regional histórico. Las zonas más intensas indican mayor porcentaje de votos nulos y blancos.
         </p>
       </div>
     </div>
   </section>
-  <section id="mapa-chile">
-    <div class="wrap chapter">
-      <div class="chapter-text">
-        <div class="eyebrow">6 · 2025 en el territorio</div>
-        <h2>El aumento no fue completamente parejo</h2>
-        <p>
-          El mapa-calor permite mirar el voto nulo y blanco como una señal territorial.
-          Ordenar las regiones de norte a sur ayuda a observar dónde el fenómeno aparece
-          con mayor intensidad y dónde se mantiene más contenido.
-        </p>
-        <p>
-          En 2025, el aumento no se distribuye de manera completamente pareja. Algunas
-          regiones muestran porcentajes más altos que otras, lo que refuerza la idea de
-          que el voto que no elige debe leerse como una señal situada.
-        </p>
-        <div class="note">
-          Nota: antes de la creación de nuevas regiones, algunas zonas aparecen integradas
-          en su división administrativa original.
-        </div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-frame tall">
-          <iframe
-            src="graficos0/11_mapa_calor_chile_2025_nulos_blancos.html"
-            title="Mapa-calor tipo Chile de votos nulos y blancos en 2025"
-            loading="lazy">
-          </iframe>
-        </div>
-        <p class="caption">
-          Porcentaje regional de votos nulos y blancos en segunda vuelta presidencial 2025.
-        </p>
-      </div>
-    </div>
-  </section>
-  <section id="cartograma">
-    <div class="wrap">
-      <div class="eyebrow">7 · Comparación territorial histórica</div>
-      <h2>El país visto elección por elección</h2>
-      <p class="lead">
-        El cartograma permite observar cómo cambia la intensidad territorial de los votos nulos
-        y blancos a través del tiempo. Es una vista comparativa: no busca precisión geográfica,
-        sino ordenar las regiones de norte a sur para facilitar la lectura.
-      </p>
-      <div class="chart-card">
-        <div class="chart-frame cartogram">
-          <iframe
-            src="graficos0/12_cartograma_chile_todos_los_anios_nulos_blancos.html"
-            title="Cartograma tipo Chile de todos los años"
-            loading="lazy">
-          </iframe>
-        </div>
-        <p class="caption">
-          Cartograma tipo Chile por región y elección presidencial, 1989–2025.
-        </p>
-      </div>
-    </div>
-  </section>
+
   <section id="explora">
     <div class="wrap">
-      <div class="eyebrow">8 · Exploración regional</div>
+      <div class="eyebrow">6 · Exploración regional</div>
       <h2>Revisa cada región</h2>
+
       <p class="lead">
         Cada región tiene su propia curva. Esta sección permite revisar si el voto nulo
         y blanco siguió la tendencia nacional o si tuvo momentos particulares de aumento.
       </p>
+
       <p>
         La lectura debe considerar que algunas regiones actuales no existían como unidades
         separadas durante todo el periodo.
       </p>
+
       <div class="region-grid">
         <a href="regiones/arica_y_parinacota.html">Arica y Parinacota</a>
         <a href="regiones/tarapaca.html">Tarapacá</a>
@@ -697,30 +837,37 @@ Pega esto completo en index.html. Ya está ajustado para que los gráficos salga
       </div>
     </div>
   </section>
+
   <section class="method" id="metodologia">
     <div class="wrap wide">
       <div class="eyebrow">Metodología</div>
       <h2>Cómo se construyó esta historia</h2>
+
       <p>
         Esta visualización utiliza resultados de elecciones presidenciales chilenas entre
         1989 y 2025. Para la serie nacional se trabajó con votos emitidos, votos válidos,
         votos nulos, votos blancos y vuelta electoral.
       </p>
+
       <p>
         Para la dimensión regional se construyó una base histórica con resultados oficiales
         por región. Las primeras y segundas vueltas se analizan por separado, porque representan
         contextos electorales distintos.
       </p>
+
       <p>
         El indicador principal corresponde al porcentaje de votos nulos y blancos sobre votos emitidos:
       </p>
+
       <div class="formula">
         <span>% nulos + blancos</span> = (votos nulos + votos blancos) / votos emitidos × 100
       </div>
+
       <p>
         Además, el análisis considera los cambios del sistema electoral chileno: voto obligatorio
         para inscritos, voto voluntario con inscripción automática y retorno del voto obligatorio.
       </p>
+
       <p>
         La polarización se trabaja como una variable de contexto sobre la oferta presidencial.
         No se usa para afirmar causalidad directa, sino para observar la relación entre el grado
@@ -728,19 +875,23 @@ Pega esto completo en index.html. Ya está ajustado para que los gráficos salga
       </p>
     </div>
   </section>
+
   <section id="conclusion">
     <div class="wrap wide">
       <div class="eyebrow">Conclusión</div>
       <h2>No es una alarma, es una señal contextual</h2>
+
       <p class="lead">
         ANÚLEMELO no confirma una crisis catastrófica del voto nulo y blanco en Chile.
         Ese es justamente el hallazgo.
       </p>
+
       <p>
         La señal existe, pero es más moderada, más variable y más dependiente del contexto
         de lo que parecía al inicio. El voto que no elige no dice una sola cosa: no permite
         saber si hubo protesta, error, desinformación o indiferencia.
       </p>
+
       <p>
         Pero sí permite observar momentos en que una parte del electorado participa sin adherir
         a ninguna candidatura. Por eso, más que una alarma, funciona como un termómetro: sube,
@@ -748,8 +899,10 @@ Pega esto completo en index.html. Ya está ajustado para que los gráficos salga
       </p>
     </div>
   </section>
+
   <footer>
     ANÚLEMELO · Narración gráfica · Elecciones presidenciales chilenas 1989–2025
   </footer>
+
 </body>
 </html>
