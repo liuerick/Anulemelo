@@ -30,6 +30,8 @@
       --line: #d6c09b;
       --red: #b63d35;
       --red-dark: #76231f;
+      --blue: #23538a;
+      --blue-dark: #153b66;
       --black: #111111;
       --max: 1120px;
     }
@@ -327,19 +329,28 @@
       max-width: 920px;
       margin-top: 24px;
       padding: 28px 30px;
-      background: rgba(118, 35, 31, 0.08);
-      border: 1px solid rgba(118, 35, 31, 0.22);
+      background: rgba(35, 83, 138, 0.10);
+      border: 1px solid rgba(35, 83, 138, 0.32);
+      border-left: 7px solid var(--blue);
       border-radius: 26px;
     }
 
     .parisi-note span {
       display: inline-block;
       margin-bottom: 12px;
-      color: var(--red-dark);
+      color: var(--blue);
       font-size: 0.76rem;
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 0.08em;
+    }
+
+    .parisi-note h3 {
+      color: var(--blue-dark);
+    }
+
+    .parisi-note p {
+      color: #364e66;
     }
 
     .region-tools {
@@ -561,11 +572,11 @@
       <a class="brand" href="#">ANÚLEMELO</a>
 
       <nav aria-label="Navegación principal">
-        <a href="#hipotesis">Hipótesis</a>
         <a href="#nacional">Datos</a>
+        <a href="#vueltas">Segunda vuelta</a>
+        <a href="#polarizacion">Oferta</a>
         <a href="#territorio">Territorio</a>
         <a href="#regiones">Regiones</a>
-        <a href="#metodologia">Metodología</a>
       </nav>
     </div>
   </header>
@@ -586,10 +597,10 @@
       </div>
     </section>
 
-    <section id="hipotesis">
+    <section id="pregunta">
       <div class="wrap">
         <div class="section-head">
-          <span class="section-title">Hipótesis</span>
+          <span class="section-title">Por qué mirar el voto nulo</span>
           <p class="lead">
             Este reportaje parte de una pregunta simple: qué pasa con los votos que entran a la urna,
             pero no terminan apoyando a ninguna candidatura.
@@ -963,9 +974,10 @@
           <h3>Una pista que queda abierta</h3>
 
           <p>
-            En 2025, el llamado del Partido de la Gente a votar nulo o blanco no tuvo una traducción
-            completa a nivel nacional. Sin embargo, el mapa deja abierta una pregunta: si esa señal fue
-            más visible en zonas donde Franco Parisi había tenido mayor fuerza en primera vuelta.
+            En 2025, el llamado del Partido de la Gente a votar nulo o blanco no tuvo una
+            traducción completa a nivel nacional. El mapa, sin embargo, deja una pregunta
+            para mirar después: si esa señal fue más visible en zonas donde Franco Parisi
+            había tenido mayor fuerza en primera vuelta.
           </p>
         </div>
       </div>
@@ -974,7 +986,7 @@
     <section id="regiones">
       <div class="wrap">
         <div class="section-head">
-          <span class="section-title">06 • Exploración regional</span>
+          <span class="section-title">Exploración regional</span>
           <p class="lead">
             Selecciona una región para revisar su evolución propia. El gráfico se actualiza dentro
             de esta misma página y permite observar cuándo aparece el aumento más fuerte.
@@ -1030,7 +1042,7 @@
         </div>
 
         <div class="method-card" id="metodologia">
-          <span class="section-title">07 • Metodología</span>
+          <span class="section-title">Metodología</span>
 
           <p>
             La base reúne resultados presidenciales por año, vuelta y región, considerando votos
