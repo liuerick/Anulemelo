@@ -22,18 +22,18 @@
 
   <style>
     :root {
-      --fondo: #f3e3c8;
-      --papel: #fff8e9;
-      --papel-2: #f8ecd6;
-      --tinta: #161616;
+      --fondo: #f1dfc2;
+      --papel: #fff8e8;
+      --papel-2: #f8ecd5;
+      --tinta: #141414;
       --gris: #5d554b;
-      --gris-2: #81766a;
-      --linea: #d7c3a3;
-      --rojo: #b64038;
-      --rojo-oscuro: #7c2824;
-      --naranja: #e77e30;
-      --amarillo: #e3b44b;
-      --negro: #101010;
+      --gris-2: #7c7164;
+      --linea: #d6c09b;
+      --rojo: #b63d35;
+      --rojo-oscuro: #76231f;
+      --naranja: #e37a2f;
+      --amarillo: #e2b348;
+      --negro: #111111;
       --blanco: #ffffff;
       --max: 1180px;
     }
@@ -50,10 +50,10 @@
       margin: 0;
       font-family: "DM Sans", system-ui, sans-serif;
       background:
-        linear-gradient(rgba(16,16,16,0.026) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(16,16,16,0.018) 1px, transparent 1px),
+        linear-gradient(rgba(20,20,20,0.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20,20,20,0.018) 1px, transparent 1px),
         var(--fondo);
-      background-size: 34px 34px;
+      background-size: 36px 36px;
       color: var(--tinta);
       line-height: 1.65;
     }
@@ -85,11 +85,11 @@
     }
 
     h1 {
-      font-size: clamp(4rem, 12vw, 10rem);
+      font-size: clamp(4.2rem, 12vw, 10.5rem);
     }
 
     h2 {
-      font-size: clamp(2.1rem, 5vw, 4.3rem);
+      font-size: clamp(2.1rem, 5vw, 4.4rem);
     }
 
     h3 {
@@ -100,15 +100,15 @@
     }
 
     .top-bar {
-      height: 18px;
+      height: 16px;
       background:
         linear-gradient(
           90deg,
-          var(--rojo) 0 28%,
-          var(--naranja) 28% 44%,
-          var(--negro) 44% 48%,
-          var(--amarillo) 48% 62%,
-          var(--rojo) 62% 100%
+          var(--rojo) 0 31%,
+          var(--naranja) 31% 45%,
+          var(--negro) 45% 48%,
+          var(--amarillo) 48% 63%,
+          var(--rojo) 63% 100%
         );
     }
 
@@ -116,15 +116,15 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(255, 248, 233, 0.95);
-      border-bottom: 2px solid var(--linea);
-      backdrop-filter: blur(14px);
+      background: rgba(255, 248, 232, 0.94);
+      border-bottom: 1px solid rgba(118, 35, 31, 0.18);
+      backdrop-filter: blur(16px);
     }
 
     .site-nav-inner {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 12px 22px;
+      padding: 13px 22px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -141,32 +141,50 @@
 
     .nav-links {
       display: flex;
-      gap: 22px;
+      gap: 24px;
       overflow-x: auto;
       white-space: nowrap;
-      color: #3d3329;
+      color: #3b3128;
       font-size: 0.92rem;
       font-weight: 800;
     }
 
+    .nav-links a {
+      opacity: 0.82;
+    }
+
     .nav-links a:hover {
       color: var(--rojo);
+      opacity: 1;
     }
 
     .hero {
-      padding: 86px 22px 72px;
+      position: relative;
+      overflow: hidden;
+      padding: 92px 22px 78px;
       background:
-        radial-gradient(circle at 82% 12%, rgba(227, 180, 75, 0.34), transparent 23%),
-        radial-gradient(circle at 10% 88%, rgba(182, 64, 56, 0.20), transparent 25%),
-        var(--papel);
+        radial-gradient(circle at 86% 12%, rgba(226, 179, 72, 0.35), transparent 23%),
+        radial-gradient(circle at 8% 90%, rgba(182, 61, 53, 0.20), transparent 25%),
+        linear-gradient(145deg, #fff8e8 0%, #f3dfc1 100%);
       border-bottom: 4px solid var(--rojo);
     }
 
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, transparent 0 62%, rgba(182,61,53,0.08) 62% 100%);
+      pointer-events: none;
+    }
+
     .hero-grid {
+      position: relative;
+      z-index: 1;
       max-width: var(--max);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.72fr);
+      grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.72fr);
       gap: 48px;
       align-items: center;
     }
@@ -177,7 +195,7 @@
       padding: 7px 12px;
       border: 2px solid var(--rojo);
       border-radius: 999px;
-      background: #efcfc7;
+      background: #efcec5;
       color: var(--rojo-oscuro);
       font-size: 0.78rem;
       font-weight: 800;
@@ -194,8 +212,8 @@
     }
 
     .subtitle {
-      max-width: 760px;
-      color: #2d261f;
+      max-width: 780px;
+      color: #2b241e;
       font-size: clamp(1.45rem, 3vw, 2.35rem);
       font-weight: 800;
       line-height: 1.15;
@@ -203,87 +221,147 @@
     }
 
     .hero p {
-      color: #42382e;
+      color: #41372d;
       font-size: 1.1rem;
       max-width: 820px;
     }
 
-    .image-slot {
-      min-height: 300px;
+    .hero-visual {
+      min-height: 470px;
+      border-radius: 34px;
       background:
-        linear-gradient(145deg, rgba(182,64,56,0.12), rgba(227,180,75,0.20)),
-        var(--papel-2);
+        radial-gradient(circle at 22% 22%, rgba(226,179,72,0.34), transparent 30%),
+        radial-gradient(circle at 80% 78%, rgba(182,61,53,0.22), transparent 32%),
+        #f8ecd5;
       border: 2px solid var(--linea);
-      border-radius: 26px;
-      box-shadow: 10px 10px 0 rgba(124, 40, 36, 0.11);
-      padding: 18px;
-      display: grid;
-      place-items: center;
+      box-shadow: 16px 16px 0 rgba(118, 35, 31, 0.12);
       position: relative;
       overflow: hidden;
-    }
-
-    .image-slot::before {
-      content: "";
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: rgba(182, 64, 56, 0.13);
-      right: -70px;
-      top: -55px;
-    }
-
-    .image-slot::after {
-      content: "";
-      position: absolute;
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      background: rgba(227, 180, 75, 0.25);
-      left: -44px;
-      bottom: -38px;
-    }
-
-    .image-slot img {
-      position: relative;
-      z-index: 2;
-      max-width: 100%;
-      max-height: 420px;
-      object-fit: contain;
-      border-radius: 16px;
-    }
-
-    .image-placeholder {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      min-height: 220px;
-      border: 2px dashed rgba(124, 40, 36, 0.48);
-      border-radius: 20px;
       display: grid;
       place-items: center;
-      text-align: center;
-      padding: 28px;
-      color: var(--rojo-oscuro);
-      font-weight: 800;
-      background: rgba(255, 248, 233, 0.45);
     }
 
-    .image-placeholder span {
-      display: block;
-      margin-top: 8px;
-      color: var(--gris);
-      font-weight: 600;
-      font-size: 0.94rem;
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border: 2px solid rgba(118,35,31,0.14);
+      border-radius: 50%;
+      right: -90px;
+      top: -90px;
     }
 
-    .hero .image-slot {
-      min-height: 470px;
+    .hero-visual::after {
+      content: "1989—2025";
+      position: absolute;
+      bottom: 22px;
+      right: 24px;
+      color: rgba(118, 35, 31, 0.35);
+      font-family: "Archivo Black", sans-serif;
+      font-size: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .ballot-scene {
+      position: relative;
+      width: min(330px, 80%);
+      height: 360px;
+    }
+
+    .ballot-paper {
+      position: absolute;
+      left: 68px;
+      top: 10px;
+      width: 170px;
+      height: 220px;
+      background: #fffaf0;
+      border: 2px solid #d4b98f;
+      border-radius: 14px;
+      transform: rotate(-8deg);
+      box-shadow: 0 16px 30px rgba(20,20,20,0.12);
+    }
+
+    .ballot-paper::before {
+      content: "";
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      top: 48px;
+      height: 12px;
+      background: #d6c09b;
+      box-shadow:
+        0 34px 0 #d6c09b,
+        0 68px 0 #d6c09b,
+        0 102px 0 #d6c09b;
+      border-radius: 999px;
+    }
+
+    .ballot-x {
+      position: absolute;
+      top: 148px;
+      left: 56px;
+      width: 60px;
+      height: 60px;
+    }
+
+    .ballot-x::before,
+    .ballot-x::after {
+      content: "";
+      position: absolute;
+      left: 27px;
+      top: 0;
+      width: 8px;
+      height: 64px;
+      background: var(--rojo);
+      border-radius: 999px;
+    }
+
+    .ballot-x::before {
+      transform: rotate(45deg);
+    }
+
+    .ballot-x::after {
+      transform: rotate(-45deg);
+    }
+
+    .ballot-box {
+      position: absolute;
+      left: 28px;
+      bottom: 18px;
+      width: 260px;
+      height: 150px;
+      background: #d9c3a3;
+      border: 3px solid #a9875c;
+      border-radius: 22px;
+      box-shadow: 0 20px 38px rgba(20,20,20,0.16);
+    }
+
+    .ballot-box::before {
+      content: "";
+      position: absolute;
+      left: 45px;
+      right: 45px;
+      top: -13px;
+      height: 20px;
+      background: #7c2824;
+      border-radius: 999px;
+    }
+
+    .ballot-box::after {
+      content: "VOTO";
+      position: absolute;
+      left: 50%;
+      top: 52%;
+      transform: translate(-50%, -50%);
+      color: rgba(118, 35, 31, 0.55);
+      font-family: "Archivo Black", sans-serif;
+      font-size: 2rem;
+      letter-spacing: -0.06em;
     }
 
     section {
-      padding: 82px 22px;
+      padding: 86px 22px;
     }
 
     .wrap {
@@ -292,7 +370,7 @@
     }
 
     .section-head {
-      max-width: 920px;
+      max-width: 930px;
       margin-bottom: 30px;
     }
 
@@ -310,13 +388,13 @@
     }
 
     .text-wide {
-      max-width: 920px;
+      max-width: 930px;
     }
 
     .pull {
       max-width: 960px;
       margin-top: 30px;
-      background: #efcfc7;
+      background: #efcec5;
       border-left: 10px solid var(--rojo);
       border-radius: 18px;
       padding: 28px;
@@ -329,23 +407,35 @@
       font-weight: 800;
     }
 
-    .image-row {
+    .data-strip {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      margin: 32px 0;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 34px;
     }
 
-    .image-strip {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin: 34px 0;
+    .data-card {
+      background: rgba(255, 248, 232, 0.82);
+      border: 1px solid rgba(118, 35, 31, 0.18);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 14px 28px rgba(20,20,20,0.06);
     }
 
-    .image-strip .image-slot {
-      min-height: 250px;
-      box-shadow: 6px 6px 0 rgba(124, 40, 36, 0.10);
+    .data-card strong {
+      display: block;
+      font-family: "Archivo Black", sans-serif;
+      color: var(--rojo-oscuro);
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      margin-bottom: 8px;
+    }
+
+    .data-card span {
+      color: var(--gris);
+      font-size: 0.92rem;
+      font-weight: 700;
     }
 
     .definition-grid {
@@ -357,10 +447,10 @@
 
     .definition-card {
       background: var(--papel);
-      border: 2px solid var(--linea);
-      border-radius: 20px;
+      border: 1px solid rgba(118, 35, 31, 0.18);
+      border-radius: 22px;
       padding: 24px;
-      box-shadow: 7px 7px 0 rgba(227, 180, 75, 0.18);
+      box-shadow: 0 18px 40px rgba(20,20,20,0.07);
     }
 
     .definition-card strong {
@@ -374,7 +464,7 @@
       margin-top: 28px;
       background: var(--negro);
       color: white;
-      border-radius: 16px;
+      border-radius: 18px;
       padding: 22px;
       text-align: center;
       font-weight: 800;
@@ -387,23 +477,23 @@
 
     .story-card {
       background: var(--papel);
-      border: 2px solid var(--linea);
-      border-radius: 26px;
-      box-shadow: 10px 10px 0 rgba(124, 40, 36, 0.10);
+      border: 1px solid rgba(118, 35, 31, 0.18);
+      border-radius: 30px;
+      box-shadow: 0 24px 60px rgba(20,20,20,0.10);
       overflow: hidden;
       margin-top: 30px;
     }
 
     .story-card-text {
-      padding: 28px 30px 8px;
-      max-width: 920px;
+      padding: 30px 34px 10px;
+      max-width: 980px;
     }
 
     .chart-frame {
       width: 100%;
       height: 575px;
       background: white;
-      border-top: 2px solid var(--linea);
+      border-top: 1px solid rgba(118, 35, 31, 0.16);
       overflow: hidden;
     }
 
@@ -412,7 +502,7 @@
     }
 
     .chart-frame.wide {
-      height: 680px;
+      height: 690px;
     }
 
     .chart-frame iframe,
@@ -425,7 +515,7 @@
     }
 
     .caption {
-      padding: 12px 18px 18px;
+      padding: 12px 20px 20px;
       margin: 0;
       color: #6c6257;
       font-size: 0.92rem;
@@ -439,9 +529,35 @@
       margin-bottom: 8px;
     }
 
+    .divider-band {
+      background: var(--negro);
+      color: white;
+      padding: 52px 22px;
+      border-top: 6px solid var(--rojo);
+      border-bottom: 6px solid var(--naranja);
+    }
+
+    .divider-band .wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .divider-band h2 {
+      color: white;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+    }
+
+    .divider-band p {
+      color: #d8d0c4;
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
     .territory-note {
       background: #faead2;
-      border: 2px solid var(--linea);
+      border: 1px solid rgba(118, 35, 31, 0.18);
       border-radius: 18px;
       padding: 20px;
       color: #5a4634;
@@ -451,7 +567,7 @@
 
     .region-explorer {
       display: grid;
-      grid-template-columns: 285px minmax(0, 1fr);
+      grid-template-columns: 280px minmax(0, 1fr);
       gap: 26px;
       margin-top: 30px;
       align-items: start;
@@ -459,10 +575,10 @@
 
     .region-panel {
       background: var(--papel);
-      border: 2px solid var(--linea);
-      border-radius: 22px;
+      border: 1px solid rgba(118, 35, 31, 0.18);
+      border-radius: 24px;
       padding: 18px;
-      box-shadow: 8px 8px 0 rgba(124, 40, 36, 0.10);
+      box-shadow: 0 20px 45px rgba(20,20,20,0.08);
     }
 
     .region-panel label {
@@ -475,7 +591,7 @@
     .region-search {
       width: 100%;
       padding: 13px 14px;
-      border: 2px solid var(--linea);
+      border: 1px solid rgba(118, 35, 31, 0.25);
       border-radius: 14px;
       background: #fffaf1;
       color: var(--tinta);
@@ -487,6 +603,7 @@
     .region-search:focus {
       outline: none;
       border-color: var(--rojo);
+      box-shadow: 0 0 0 4px rgba(182, 61, 53, 0.10);
     }
 
     .zone-buttons {
@@ -497,7 +614,7 @@
     }
 
     .zone-button {
-      border: 2px solid var(--linea);
+      border: 1px solid rgba(118, 35, 31, 0.22);
       background: #fff2dc;
       color: var(--gris);
       border-radius: 999px;
@@ -510,9 +627,9 @@
 
     .zone-button.active,
     .zone-button:hover {
-      background: #efcfc7;
+      background: var(--rojo);
       border-color: var(--rojo);
-      color: var(--rojo-oscuro);
+      color: white;
     }
 
     .region-list {
@@ -527,7 +644,7 @@
     .region-button {
       width: 100%;
       text-align: left;
-      border: 2px solid transparent;
+      border: 1px solid transparent;
       background: #fff2dc;
       color: var(--tinta);
       border-radius: 12px;
@@ -542,7 +659,7 @@
     }
 
     .region-button.active {
-      background: #efcfc7;
+      background: #efcec5;
       border-color: var(--rojo);
       color: var(--rojo-oscuro);
     }
@@ -555,10 +672,10 @@
 
     .region-text-card {
       background: var(--papel);
-      border: 2px solid var(--linea);
-      border-radius: 22px;
+      border: 1px solid rgba(118, 35, 31, 0.18);
+      border-radius: 24px;
       padding: 28px;
-      box-shadow: 8px 8px 0 rgba(124, 40, 36, 0.10);
+      box-shadow: 0 20px 45px rgba(20,20,20,0.08);
     }
 
     .region-text-card h3 {
@@ -567,10 +684,10 @@
 
     .region-chart-card {
       background: var(--papel);
-      border: 2px solid var(--linea);
-      border-radius: 22px;
+      border: 1px solid rgba(118, 35, 31, 0.18);
+      border-radius: 24px;
       overflow: hidden;
-      box-shadow: 8px 8px 0 rgba(124, 40, 36, 0.10);
+      box-shadow: 0 22px 55px rgba(20,20,20,0.10);
     }
 
     .region-frame {
@@ -582,10 +699,10 @@
       margin-top: 36px;
       background: var(--negro);
       color: white;
-      border-radius: 26px;
-      padding: 30px;
+      border-radius: 28px;
+      padding: 32px;
       border-top: 8px solid var(--rojo);
-      box-shadow: 10px 10px 0 rgba(124, 40, 36, 0.14);
+      box-shadow: 0 22px 60px rgba(20,20,20,0.20);
     }
 
     .method-box h3 {
@@ -604,16 +721,38 @@
 
     .closing {
       background:
-        radial-gradient(circle at 82% 12%, rgba(227, 180, 75, 0.24), transparent 22%),
+        radial-gradient(circle at 82% 12%, rgba(227, 180, 72, 0.24), transparent 22%),
         var(--papel);
       border-top: 4px solid var(--rojo);
     }
 
     .closing-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.62fr);
-      gap: 34px;
+      grid-template-columns: minmax(0, 1fr) 280px;
+      gap: 40px;
       align-items: center;
+    }
+
+    .closing-mark {
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, #efcec5 0 42%, transparent 43%),
+        conic-gradient(from -35deg, var(--rojo), var(--naranja), var(--amarillo), var(--rojo));
+      display: grid;
+      place-items: center;
+      box-shadow: 0 24px 50px rgba(20,20,20,0.14);
+      justify-self: center;
+      position: relative;
+    }
+
+    .closing-mark::before {
+      content: "X";
+      font-family: "Archivo Black", sans-serif;
+      font-size: 5rem;
+      color: var(--rojo-oscuro);
+      letter-spacing: -0.08em;
     }
 
     footer {
@@ -628,14 +767,14 @@
     @media (max-width: 960px) {
       .hero-grid,
       .section-kicker,
+      .divider-band .wrap,
       .closing-grid {
         grid-template-columns: 1fr;
       }
 
       .definition-grid,
-      .image-row,
-      .image-strip {
-        grid-template-columns: 1fr;
+      .data-strip {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .region-explorer {
@@ -646,8 +785,8 @@
         max-height: 280px;
       }
 
-      .hero .image-slot {
-        min-height: 340px;
+      .hero-visual {
+        min-height: 360px;
       }
     }
 
@@ -666,6 +805,11 @@
         gap: 8px;
       }
 
+      .definition-grid,
+      .data-strip {
+        grid-template-columns: 1fr;
+      }
+
       .chart-frame {
         height: 480px;
       }
@@ -682,13 +826,9 @@
         height: 560px;
       }
 
-      .story-card,
-      .region-panel,
-      .region-text-card,
-      .region-chart-card,
-      .image-slot,
-      .method-box {
-        box-shadow: 5px 5px 0 rgba(124, 40, 36, 0.10);
+      .closing-mark {
+        width: 190px;
+        height: 190px;
       }
     }
   </style>
@@ -729,19 +869,35 @@
           y qué pistas entregan cuando se cruzan con el sistema electoral, las segundas vueltas,
           la polarización y el territorio.
         </p>
+
+        <div class="data-strip">
+          <div class="data-card">
+            <strong>1989</strong>
+            <span>inicio de la serie presidencial</span>
+          </div>
+          <div class="data-card">
+            <strong>2025</strong>
+            <span>retorno del voto obligatorio presidencial</span>
+          </div>
+          <div class="data-card">
+            <strong>2ª</strong>
+            <span>vuelta como momento clave</span>
+          </div>
+          <div class="data-card">
+            <strong>16</strong>
+            <span>regiones comparadas</span>
+          </div>
+        </div>
       </div>
 
-      <figure class="image-slot">
-        <img
-          src="img/mapa_chile_editorial.png"
-          alt="Mapa editorial de Chile"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
-        >
-        <figcaption class="image-placeholder">
-          Imagen principal: mapa editorial de Chile
-          <span>Subir como <strong>img/mapa_chile_editorial.png</strong></span>
-        </figcaption>
-      </figure>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="ballot-scene">
+          <div class="ballot-paper">
+            <div class="ballot-x"></div>
+          </div>
+          <div class="ballot-box"></div>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -772,32 +928,6 @@
             El voto nulo y blanco funciona como un termómetro: no explica por sí solo el clima
             electoral, pero marca momentos en que una parte del electorado participa sin elegir.
           </p>
-        </div>
-
-        <div class="image-row">
-          <figure class="image-slot">
-            <img
-              src="img/urna_votacion.png"
-              alt="Urna de votación"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
-            >
-            <figcaption class="image-placeholder">
-              Imagen de urna
-              <span>Subir como <strong>img/urna_votacion.png</strong></span>
-            </figcaption>
-          </figure>
-
-          <figure class="image-slot">
-            <img
-              src="img/papeleta_voto.png"
-              alt="Papeleta electoral"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
-            >
-            <figcaption class="image-placeholder">
-              Imagen de papeleta
-              <span>Subir como <strong>img/papeleta_voto.png</strong></span>
-            </figcaption>
-          </figure>
         </div>
       </div>
     </section>
@@ -839,44 +969,6 @@
         <div class="formula">
           <span>% nulos + blancos</span> = (votos nulos + votos blancos) / votos emitidos × 100
         </div>
-
-        <div class="image-strip">
-          <figure class="image-slot">
-            <img
-              src="img/voto_nulo_detalle.png"
-              alt="Detalle de voto nulo"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
-            >
-            <figcaption class="image-placeholder">
-              Detalle voto nulo
-              <span><strong>img/voto_nulo_detalle.png</strong></span>
-            </figcaption>
-          </figure>
-
-          <figure class="image-slot">
-            <img
-              src="img/manos_papeleta.png"
-              alt="Manos con papeleta"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
-            >
-            <figcaption class="image-placeholder">
-              Manos + papeleta
-              <span><strong>img/manos_papeleta.png</strong></span>
-            </figcaption>
-          </figure>
-
-          <figure class="image-slot">
-            <img
-              src="img/fila_votacion.png"
-              alt="Fila de votación"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
-            >
-            <figcaption class="image-placeholder">
-              Fila de votación
-              <span><strong>img/fila_votacion.png</strong></span>
-            </figcaption>
-          </figure>
-        </div>
       </div>
     </section>
 
@@ -917,23 +1009,47 @@
       <div class="wrap">
         <div class="section-head">
           <div class="chapter-number">02 · Reglas del voto</div>
-          <h2>No todos los años se comparan igual</h2>
+          <h2>Del padrón congelado al voto obligatorio</h2>
           <p class="lead">
-            Entre 1989 y 2009, el voto era obligatorio para quienes estaban inscritos.
-            Luego vino el voto voluntario con inscripción automática. En 2025, la elección
-            presidencial vuelve a desarrollarse con voto obligatorio.
-          </p>
-          <p>
-            Estos cambios importan porque modifican el universo de votantes. No significa
-            lo mismo un porcentaje de votos nulos o blancos en una elección voluntaria que
-            en una elección donde el padrón está obligado a participar.
+            Para entender los votos nulos y blancos no basta con mirar porcentajes: también hay que mirar quiénes entran al padrón y bajo qué reglas votan.
           </p>
         </div>
 
         <article class="story-card">
           <div class="story-card-text">
-            <h3>Sistema electoral y lectura del dato</h3>
+            <h3>Del padrón congelado al voto obligatorio</h3>
+
+            <p>
+              Entre 1989 y 2009, la participación electoral chilena se mantuvo relativamente estable
+              en cantidad de votantes, aunque la población habilitada para sufragar seguía creciendo.
+              El sistema de inscripción voluntaria y voto obligatorio produjo un padrón cada vez más
+              envejecido y congelado: votaban, en gran parte, quienes ya estaban inscritos.
+            </p>
+
+            <p>
+              Ese escenario abrió paso a la inscripción automática y al voto voluntario. Pero el cambio
+              tuvo un costo inmediato: en la primera vuelta presidencial de 2013, la participación cayó
+              a 49,4%, cerca de 14 puntos porcentuales menos que en la presidencial de 2009. Durante ese
+              ciclo, la participación presidencial solo volvió a superar el 50% en la segunda vuelta de 2021.
+            </p>
+
+            <p>
+              La respuesta institucional llegó con el retorno del voto obligatorio con inscripción automática.
+              En 2022, la participación alcanzó un 85,4%, mostrando el impacto de la obligatoriedad sobre
+              el padrón. Ese aumento de votantes también cambió la escala de los votos nulos y blancos:
+              al entrar más personas al sistema, creció también el volumen de votos que no se transforman
+              en una preferencia válida.
+            </p>
+
+            <p>
+              En la segunda vuelta presidencial de 2025 hubo cerca de 950 mil votos nulos. Hasta entonces,
+              uno de los puntos de comparación más altos era la elección presidencial de 1993, con cerca de
+              407 mil votos nulos sobre un total de 7.376.691 votos emitidos. La diferencia muestra que el
+              fenómeno debe leerse en dos niveles: como porcentaje, pero también como volumen dentro de un
+              padrón mucho más amplio.
+            </p>
           </div>
+
           <div class="chart-frame">
             <iframe
               src="graficos0/03_sistema_electoral_nulos_blancos.html"
@@ -945,18 +1061,6 @@
             Cambios del sistema electoral y evolución de votos nulos y blancos.
           </p>
         </article>
-
-        <figure class="image-slot" style="margin-top: 34px;">
-          <img
-            src="img/archivo_elecciones_1989.png"
-            alt="Archivo electoral de 1989"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
-          >
-          <figcaption class="image-placeholder">
-            Imagen de archivo electoral histórico
-            <span>Subir como <strong>img/archivo_elecciones_1989.png</strong></span>
-          </figcaption>
-        </figure>
       </div>
     </section>
 
@@ -1027,32 +1131,16 @@
             Puntaje de polarización de la oferta presidencial por elección y vuelta.
           </p>
         </article>
+      </div>
+    </section>
 
-        <div class="image-row">
-          <figure class="image-slot">
-            <img
-              src="img/archivo_elecciones_2025.png"
-              alt="Archivo electoral de 2025"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
-            >
-            <figcaption class="image-placeholder">
-              Imagen de elección 2025
-              <span>Subir como <strong>img/archivo_elecciones_2025.png</strong></span>
-            </figcaption>
-          </figure>
-
-          <figure class="image-slot">
-            <img
-              src="img/territorio_chile.png"
-              alt="Imagen editorial del territorio chileno"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
-            >
-            <figcaption class="image-placeholder">
-              Imagen de territorio
-              <span>Subir como <strong>img/territorio_chile.png</strong></span>
-            </figcaption>
-          </figure>
-        </div>
+    <section class="divider-band">
+      <div class="wrap">
+        <h2>El dato cambia cuando baja al territorio</h2>
+        <p>
+          La mirada nacional permite ver la tendencia general, pero no muestra todas las diferencias.
+          Para observar dónde el voto nulo y blanco se vuelve más intenso, hay que mirar región por región.
+        </p>
       </div>
     </section>
 
@@ -1200,17 +1288,7 @@
           </p>
         </div>
 
-        <figure class="image-slot">
-          <img
-            src="img/cierre_termometro.png"
-            alt="Imagen de cierre del reportaje"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
-          >
-          <figcaption class="image-placeholder">
-            Imagen de cierre
-            <span>Subir como <strong>img/cierre_termometro.png</strong></span>
-          </figcaption>
-        </figure>
+        <div class="closing-mark" aria-hidden="true"></div>
       </div>
     </section>
 
