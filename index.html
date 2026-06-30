@@ -1,151 +1,164 @@
-Sí. Este es el index.html completo integrado con los cambios:
-
-* sin X;
-* sin logo grande;
-* sin cuatro cuadrados de portada;
-* sin tu nombre ni ramo;
-* cierre más sobrio;
-* gráficos con padding para que no queden pegados a la esquina;
-* texto de contexto del voto nulo incluido.
-
-Copia todo y reemplaza tu index.html.
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta name="author" content="ANÚLEMELO">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ANÚLEMELO | Voto nulo y blanco en Chile</title>
+
+  <title>ANÚLEMELO | El voto que no elige presidente</title>
+
   <meta
     name="description"
     content="Reportaje visual sobre la evolución de los votos nulos y blancos en elecciones presidenciales chilenas entre 1989 y 2025."
   >
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Libre+Franklin:wght@700;800;900&display=swap"
     rel="stylesheet"
   >
+
   <style>
     :root {
-      --fondo: #f1dfc2;
-      --papel: #fff8e8;
-      --papel-2: #f8ecd5;
-      --tinta: #141414;
-      --gris: #5d554b;
-      --linea: #d6c09b;
-      --rojo: #b63d35;
-      --rojo-oscuro: #76231f;
-      --naranja: #e37a2f;
-      --amarillo: #e2b348;
-      --negro: #111111;
-      --max: 1180px;
+      --bg: #f1dfc2;
+      --paper: #fff8e8;
+      --paper-soft: #f8ecd5;
+      --ink: #141414;
+      --muted: #5d554b;
+      --line: #d6c09b;
+      --red: #b63d35;
+      --red-dark: #76231f;
+      --orange: #e37a2f;
+      --black: #111111;
+      --max: 1120px;
     }
+
     * {
       box-sizing: border-box;
     }
+
     html {
       scroll-behavior: smooth;
     }
+
     body {
       margin: 0;
       font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--tinta);
+      color: var(--ink);
       background:
-        linear-gradient(rgba(177, 95, 55, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(177, 95, 55, 0.045) 1px, transparent 1px),
-        var(--fondo);
-      background-size: 34px 34px;
+        linear-gradient(rgba(118, 35, 31, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(118, 35, 31, 0.035) 1px, transparent 1px),
+        var(--bg);
+      background-size: 36px 36px;
       line-height: 1.55;
     }
-    img {
-      max-width: 100%;
-      display: block;
-    }
+
     a {
       color: inherit;
       text-decoration: none;
     }
+
     p {
       margin: 0;
     }
+
     .wrap {
       width: min(var(--max), calc(100% - 42px));
       margin: 0 auto;
     }
+
     header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: rgba(255, 248, 232, 0.88);
+      z-index: 50;
+      background: rgba(255, 248, 232, 0.9);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(118, 35, 31, 0.18);
     }
+
     .topbar {
-      height: 66px;
+      height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 24px;
     }
-    .brand-small {
+
+    .brand {
       display: inline-flex;
       align-items: center;
+      gap: 10px;
       font-family: "Libre Franklin", sans-serif;
-      font-size: 1.08rem;
+      font-size: 1.02rem;
       font-weight: 900;
-      letter-spacing: -0.055em;
-      color: var(--rojo-oscuro);
+      letter-spacing: -0.045em;
+      color: var(--red-dark);
       white-space: nowrap;
     }
+
+    .brand::before {
+      content: "";
+      width: 20px;
+      height: 26px;
+      display: inline-block;
+      background: var(--paper);
+      border: 2px solid var(--red-dark);
+      border-radius: 3px;
+      box-shadow: 4px 4px 0 rgba(118, 35, 31, 0.18);
+    }
+
     nav {
       display: flex;
       align-items: center;
       gap: 18px;
-      font-size: 0.82rem;
-      font-weight: 800;
+      font-size: 0.78rem;
+      font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--gris);
+      letter-spacing: 0.05em;
+      color: var(--muted);
     }
+
     nav a {
       padding: 6px 0;
       border-bottom: 2px solid transparent;
     }
+
     nav a:hover {
-      color: var(--rojo-oscuro);
-      border-bottom-color: var(--rojo);
+      color: var(--red-dark);
+      border-bottom-color: var(--red);
     }
+
     .hero {
-      padding: 82px 0 72px;
+      padding: 92px 0 88px;
       border-bottom: 1px solid rgba(118, 35, 31, 0.18);
     }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 36px;
-      align-items: center;
+
+    .hero-inner {
       max-width: 980px;
     }
-    .eyebrow {
+
+    .kicker {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 22px;
-      color: var(--rojo-oscuro);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+      margin-bottom: 24px;
+      color: var(--red-dark);
       font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
-    .eyebrow::before {
+
+    .kicker::before {
       content: "";
-      width: 38px;
+      width: 42px;
       height: 3px;
-      background: var(--rojo);
-      border-radius: 99px;
+      border-radius: 999px;
+      background: var(--red);
     }
+
     h1,
     h2,
     h3 {
@@ -154,322 +167,292 @@ Copia todo y reemplaza tu index.html.
       line-height: 0.98;
       letter-spacing: -0.06em;
     }
+
     h1 {
-      max-width: 920px;
-      font-size: clamp(4rem, 10vw, 8.7rem);
+      max-width: 900px;
+      font-size: clamp(4rem, 10vw, 8.4rem);
       text-transform: uppercase;
     }
-    h2 {
-      font-size: clamp(2.4rem, 5.6vw, 5.3rem);
-      text-transform: uppercase;
-    }
-    h3 {
-      font-size: clamp(1.55rem, 3vw, 2.35rem);
-      letter-spacing: -0.045em;
-    }
+
     .hero p {
-      max-width: 860px;
-      margin-top: 24px;
-      color: var(--gris);
+      max-width: 820px;
+      margin-top: 26px;
+      color: var(--muted);
       font-size: clamp(1.08rem, 2vw, 1.35rem);
-      line-height: 1.55;
+      line-height: 1.58;
     }
-    .hero strong {
-      color: var(--tinta);
-    }
+
     section {
-      padding: 86px 0;
+      padding: 82px 0;
     }
+
     .section-head {
-      max-width: 960px;
-      margin-bottom: 34px;
+      max-width: 860px;
+      margin-bottom: 30px;
     }
-    .chapter-number {
-      display: inline-block;
-      margin-bottom: 14px;
-      font-size: 0.8rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--rojo-oscuro);
-    }
-    .lead {
-      max-width: 840px;
-      margin-top: 20px;
-      font-size: clamp(1.05rem, 2vw, 1.25rem);
-      color: var(--gris);
-      line-height: 1.62;
-    }
-    .story-card {
-      background: rgba(255, 248, 232, 0.82);
-      border: 1px solid rgba(118, 35, 31, 0.2);
-      border-radius: 30px;
-      overflow: hidden;
-      box-shadow: 0 22px 60px rgba(60, 35, 20, 0.08);
-    }
-    .story-card-text {
-      padding: 30px 34px 10px;
-      max-width: 980px;
-    }
-    .story-card-text h3 {
+
+    .section-title {
+      display: block;
       margin-bottom: 18px;
+      font-family: "Libre Franklin", sans-serif;
+      font-size: clamp(1.6rem, 3.5vw, 3rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      color: var(--red-dark);
     }
-    .story-card-text p {
-      margin: 0 0 17px;
-      color: var(--gris);
+
+    .lead {
+      max-width: 790px;
+      color: var(--muted);
+      font-size: clamp(1.02rem, 1.7vw, 1.18rem);
+      line-height: 1.68;
+    }
+
+    .text-card,
+    .story-card,
+    .note-card,
+    .region-panel,
+    .region-display {
+      background: rgba(255, 248, 232, 0.84);
+      border: 1px solid rgba(118, 35, 31, 0.20);
+      border-radius: 28px;
+      box-shadow: 0 18px 50px rgba(60, 35, 20, 0.07);
+    }
+
+    .text-card {
+      max-width: 920px;
+      padding: 32px 34px;
+    }
+
+    .text-card p,
+    .story-copy p,
+    .note-card p,
+    .region-copy p,
+    .parisi-note p {
+      color: var(--muted);
       font-size: 1.02rem;
       line-height: 1.72;
     }
-    .story-card-text strong {
-      color: var(--tinta);
+
+    .text-card p + p,
+    .story-copy p + p,
+    .note-card p + p,
+    .region-copy p + p,
+    .parisi-note p + p {
+      margin-top: 16px;
     }
+
+    .story-card {
+      overflow: hidden;
+    }
+
+    .story-copy {
+      max-width: 980px;
+      padding: 32px 34px 14px;
+    }
+
+    .story-copy h3,
+    .note-card h3,
+    .region-copy h3,
+    .parisi-note h3 {
+      margin-bottom: 18px;
+      font-size: clamp(1.35rem, 2.4vw, 2rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      color: var(--red-dark);
+    }
+
     .chart-frame {
-      width: 100%;
-      height: 575px;
+      height: 650px;
+      padding: 24px;
       background: #ffffff;
-      padding: 18px;
-      border-top: 1px solid rgba(118, 35, 31, 0.16);
-      border-bottom: 1px solid rgba(118, 35, 31, 0.12);
+      border-top: 1px solid rgba(118, 35, 31, 0.14);
     }
-    .chart-frame.short {
-      height: 520px;
+
+    .chart-frame.compact {
+      height: 590px;
     }
-    .chart-frame.wide {
-      height: 690px;
+
+    .chart-frame.tall {
+      height: 760px;
     }
+
     .chart-frame iframe {
       width: 100%;
       height: 100%;
-      border: 0;
       display: block;
+      border: 0;
       background: #ffffff;
       border-radius: 12px;
     }
+
     .caption {
       padding: 16px 24px 22px;
-      color: var(--gris);
+      color: var(--muted);
       font-size: 0.88rem;
       line-height: 1.55;
-      border-top: 1px solid rgba(118, 35, 31, 0.08);
+      border-top: 1px solid rgba(118, 35, 31, 0.09);
     }
-    .split-grid {
+
+    .definition-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 22px;
-      margin-top: 26px;
+      max-width: 980px;
     }
-    .note-box {
-      background: rgba(118, 35, 31, 0.08);
-      border: 1px solid rgba(118, 35, 31, 0.18);
-      border-radius: 26px;
-      padding: 24px;
+
+    .note-card {
+      padding: 28px;
     }
-    .note-box h3 {
-      font-size: 1.35rem;
+
+    .soft-band {
+      padding: 56px 0;
+      background: var(--red-dark);
+      color: var(--paper);
+    }
+
+    .soft-band .section-title {
+      color: var(--paper);
       margin-bottom: 14px;
-      letter-spacing: -0.04em;
     }
-    .note-box p,
-    .note-box li {
-      color: var(--gris);
-      font-size: 0.98rem;
+
+    .soft-band p {
+      max-width: 760px;
+      color: rgba(255, 248, 232, 0.78);
+      font-size: 1.1rem;
       line-height: 1.65;
     }
-    .note-box ul {
-      margin: 0;
-      padding-left: 18px;
+
+    .parisi-note {
+      max-width: 920px;
+      margin-top: 24px;
+      padding: 28px 30px;
+      background: rgba(118, 35, 31, 0.08);
+      border: 1px solid rgba(118, 35, 31, 0.22);
+      border-radius: 26px;
     }
-    .note-box li + li {
-      margin-top: 9px;
-    }
-    .hypothesis {
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 24px;
-      align-items: stretch;
-    }
-    .hypothesis-badge {
-      background: var(--rojo-oscuro);
-      color: var(--papel);
-      border-radius: 30px;
-      padding: 30px;
-      min-height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .hypothesis-badge span {
-      font-family: "Libre Franklin", sans-serif;
-      font-size: clamp(2.8rem, 6vw, 5.8rem);
-      line-height: 0.9;
-      letter-spacing: -0.08em;
+
+    .parisi-note span {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--red-dark);
+      font-size: 0.76rem;
+      font-weight: 900;
       text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
-    .hypothesis-badge small {
-      margin-top: 22px;
-      display: block;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: rgba(255, 248, 232, 0.78);
-    }
-    .hypothesis-text {
-      background: rgba(255, 248, 232, 0.82);
-      border: 1px solid rgba(118, 35, 31, 0.2);
-      border-radius: 30px;
-      padding: 34px;
-      box-shadow: 0 22px 60px rgba(60, 35, 20, 0.08);
-    }
-    .hypothesis-text p {
-      color: var(--gris);
-      font-size: 1.08rem;
-      line-height: 1.72;
-    }
-    .hypothesis-text p + p {
-      margin-top: 16px;
-    }
-    .divider-band {
-      padding: 56px 0;
-      background: var(--rojo-oscuro);
-      color: var(--papel);
-      border-top: 1px solid rgba(20, 20, 20, 0.1);
-      border-bottom: 1px solid rgba(20, 20, 20, 0.1);
-    }
-    .divider-band h2 {
-      max-width: 1000px;
-      font-size: clamp(2.2rem, 5vw, 4.9rem);
-    }
-    .divider-band p {
-      max-width: 760px;
-      margin-top: 18px;
-      color: rgba(255, 248, 232, 0.78);
-      font-size: 1.12rem;
-      line-height: 1.6;
-    }
+
     .region-tools {
       display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 24px;
-      align-items: start;
+      grid-template-columns: 1fr;
+      gap: 22px;
     }
+
     .region-panel {
-      background: rgba(255, 248, 232, 0.82);
-      border: 1px solid rgba(118, 35, 31, 0.2);
-      border-radius: 30px;
       padding: 26px;
-      box-shadow: 0 22px 60px rgba(60, 35, 20, 0.08);
     }
+
     .region-panel h3 {
-      font-size: 1.65rem;
+      margin-bottom: 16px;
+      color: var(--red-dark);
+      font-size: 1.45rem;
+    }
+
+    .search-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
       margin-bottom: 16px;
     }
+
     .search-input {
-      width: 100%;
-      padding: 14px 16px;
-      border: 1px solid rgba(118, 35, 31, 0.25);
-      border-radius: 16px;
-      background: var(--papel);
+      width: min(420px, 100%);
+      padding: 13px 15px;
+      border: 1px solid rgba(118, 35, 31, 0.26);
+      border-radius: 14px;
+      background: var(--paper);
       font-family: inherit;
       font-size: 1rem;
-      color: var(--tinta);
+      color: var(--ink);
       outline: none;
     }
+
     .search-input:focus {
-      border-color: var(--rojo);
+      border-color: var(--red);
       box-shadow: 0 0 0 3px rgba(182, 61, 53, 0.12);
     }
+
     .filter-row {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin: 16px 0;
+      margin-bottom: 18px;
     }
+
     .filter-btn {
       border: 1px solid rgba(118, 35, 31, 0.24);
-      background: rgba(255, 248, 232, 0.8);
-      color: var(--gris);
-      padding: 8px 11px;
+      background: rgba(255, 248, 232, 0.86);
+      color: var(--muted);
+      padding: 8px 12px;
       border-radius: 999px;
       font-family: inherit;
-      font-weight: 800;
-      cursor: pointer;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-    .filter-btn.active,
-    .filter-btn:hover {
-      background: var(--rojo-oscuro);
-      color: var(--papel);
-      border-color: var(--rojo-oscuro);
-    }
-    .region-list {
-      display: grid;
-      gap: 8px;
-      max-height: 430px;
-      overflow: auto;
-      padding-right: 4px;
-    }
-    .region-btn {
-      width: 100%;
-      text-align: left;
-      border: 1px solid rgba(118, 35, 31, 0.18);
-      background: rgba(255, 248, 232, 0.86);
-      color: var(--tinta);
-      padding: 13px 14px;
-      border-radius: 16px;
-      font-family: inherit;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      align-items: center;
-    }
-    .region-btn strong {
-      font-size: 0.96rem;
-    }
-    .region-btn span {
-      color: var(--gris);
-      font-size: 0.75rem;
+      font-size: 0.76rem;
       font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
+      cursor: pointer;
     }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--red-dark);
+      color: var(--paper);
+      border-color: var(--red-dark);
+    }
+
+    .region-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .region-btn {
+      border: 1px solid rgba(118, 35, 31, 0.18);
+      background: rgba(255, 248, 232, 0.9);
+      color: var(--ink);
+      padding: 10px 13px;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
     .region-btn.active,
     .region-btn:hover {
-      background: var(--rojo);
-      color: var(--papel);
-      border-color: var(--rojo);
+      background: var(--red);
+      color: var(--paper);
+      border-color: var(--red);
     }
-    .region-btn.active span,
-    .region-btn:hover span {
-      color: rgba(255, 248, 232, 0.78);
-    }
+
     .region-display {
-      background: rgba(255, 248, 232, 0.82);
-      border: 1px solid rgba(118, 35, 31, 0.2);
-      border-radius: 30px;
       overflow: hidden;
-      box-shadow: 0 22px 60px rgba(60, 35, 20, 0.08);
     }
+
     .region-copy {
-      padding: 26px 28px 8px;
+      padding: 30px 32px 14px;
+      max-width: 940px;
     }
-    .region-copy h3 {
-      margin-bottom: 15px;
-    }
-    .region-copy p {
-      margin-bottom: 14px;
-      color: var(--gris);
-      line-height: 1.68;
-    }
+
     .region-frame {
-      width: 100%;
-      height: 760px;
+      height: 820px;
+      padding: 24px;
       background: #ffffff;
-      padding: 18px;
       border-top: 1px solid rgba(118, 35, 31, 0.12);
     }
+
     .region-frame iframe {
       width: 100%;
       height: 100%;
@@ -478,200 +461,205 @@ Copia todo y reemplaza tu index.html.
       background: #ffffff;
       border-radius: 12px;
     }
-    .method-box {
-      margin-top: 28px;
+
+    .method-card {
+      margin-top: 26px;
+      padding: 30px;
       background: rgba(20, 20, 20, 0.88);
-      color: var(--papel);
-      border-radius: 30px;
-      padding: 32px;
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 24px;
+      color: var(--paper);
+      border-radius: 28px;
     }
-    .method-box h2 {
-      font-size: clamp(2rem, 4vw, 3.5rem);
+
+    .method-card .section-title {
+      color: var(--paper);
+      margin-bottom: 18px;
     }
-    .method-box p,
-    .method-box li {
+
+    .method-card p,
+    .method-card li {
       color: rgba(255, 248, 232, 0.78);
       line-height: 1.65;
     }
-    .method-box ul {
-      margin: 0;
+
+    .method-card ul {
+      margin: 18px 0 0;
       padding-left: 18px;
     }
-    .method-box li + li {
+
+    .method-card li + li {
       margin-top: 8px;
     }
+
     .closing {
-      padding: 92px 0 100px;
-      background: var(--negro);
-      color: var(--papel);
+      background: var(--black);
+      color: var(--paper);
+      padding: 86px 0 92px;
     }
-    .closing-grid {
-      display: block;
-      max-width: 980px;
+
+    .closing .section-title {
+      color: var(--paper);
+      max-width: 900px;
     }
-    .closing h2 {
-      font-size: clamp(2.7rem, 7vw, 6.4rem);
-    }
+
     .closing p {
-      max-width: 850px;
-      margin-top: 22px;
+      max-width: 860px;
       color: rgba(255, 248, 232, 0.78);
-      font-size: 1.1rem;
-      line-height: 1.7;
+      font-size: 1.08rem;
+      line-height: 1.72;
     }
+
+    .closing p + p {
+      margin-top: 16px;
+    }
+
     footer {
-      background: var(--negro);
-      color: rgba(255, 248, 232, 0.58);
+      background: var(--black);
+      color: rgba(255, 248, 232, 0.55);
       border-top: 1px solid rgba(255, 248, 232, 0.12);
-      padding: 28px 0;
-      font-size: 0.88rem;
+      padding: 26px 0;
+      font-size: 0.86rem;
     }
-    .footer-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    @media (max-width: 960px) {
+
+    @media (max-width: 900px) {
       nav {
         display: none;
       }
-      .split-grid,
-      .hypothesis,
-      .region-tools,
-      .method-box {
+
+      .definition-grid {
         grid-template-columns: 1fr;
       }
+
       .chart-frame,
-      .chart-frame.short,
-      .chart-frame.wide {
+      .chart-frame.compact,
+      .chart-frame.tall {
         height: 620px;
       }
+
       .region-frame {
         height: 700px;
       }
     }
-    @media (max-width: 700px) {
+
+    @media (max-width: 640px) {
       .wrap {
         width: min(100% - 28px, var(--max));
       }
+
       .hero {
-        padding-top: 58px;
+        padding: 66px 0;
       }
+
       section {
-        padding: 64px 0;
+        padding: 62px 0;
       }
-      .story-card-text,
-      .hypothesis-text,
+
+      .text-card,
+      .story-copy,
+      .note-card,
       .region-panel,
-      .method-box {
+      .region-copy,
+      .method-card,
+      .parisi-note {
         padding: 24px;
       }
+
       .chart-frame,
-      .chart-frame.short,
-      .chart-frame.wide {
+      .chart-frame.compact,
+      .chart-frame.tall {
         height: 560px;
+        padding: 14px;
       }
+
       .region-frame {
         height: 620px;
-      }
-      .footer-row {
-        display: block;
+        padding: 14px;
       }
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="wrap topbar">
-      <a class="brand-small" href="#">ANÚLEMELO</a>
+      <a class="brand" href="#">ANÚLEMELO</a>
+
       <nav aria-label="Navegación principal">
         <a href="#hipotesis">Hipótesis</a>
         <a href="#nacional">Datos</a>
         <a href="#territorio">Territorio</a>
-        <a href="#regiones">Explorar</a>
+        <a href="#regiones">Regiones</a>
         <a href="#metodologia">Metodología</a>
       </nav>
     </div>
   </header>
+
   <main>
     <section class="hero">
-      <div class="wrap">
-        <div class="hero-grid">
-          <div>
-            <div class="eyebrow">Reportaje visual · Elecciones presidenciales 1989–2025</div>
-            <h1>El voto que no elige presidente</h1>
-            <p>
-              En Chile, los votos nulos y blancos suelen quedar al margen de la noche electoral.
-              No entregan una candidatura ganadora ni se traducen en escaños. Pero cuando aumentan,
-              especialmente en segunda vuelta y bajo voto obligatorio, pueden funcionar como una
-              señal de distancia entre una parte del electorado y la oferta presidencial disponible.
-            </p>
-          </div>
-        </div>
+      <div class="wrap hero-inner">
+        <div class="kicker">Reportaje visual · Elecciones presidenciales 1989–2025</div>
+
+        <h1>El voto que no elige presidente</h1>
+
+        <p>
+          En Chile, los votos nulos y blancos suelen quedar al margen de la noche electoral.
+          No entregan una candidatura ganadora ni se transforman en representación. Pero cuando
+          aumentan, especialmente bajo voto obligatorio y en una segunda vuelta marcada por polos
+          opuestos, pueden funcionar como una forma de leer la distancia entre una parte del
+          electorado y la oferta presidencial disponible.
+        </p>
       </div>
     </section>
+
     <section id="hipotesis">
       <div class="wrap">
         <div class="section-head">
-          <div class="chapter-number">01 · Hipótesis</div>
-          <h2>El voto nulo como termómetro</h2>
+          <span class="section-title">01 • Hipótesis</span>
           <p class="lead">
-            Este reportaje no interpreta cada voto nulo o blanco como protesta individual.
-            La pregunta es más amplia: cuándo crecen, en qué condiciones electorales aparecen
-            con mayor fuerza y qué puede decir su distribución territorial.
+            El voto nulo y blanco no tiene un significado único. Este reportaje no intenta descubrir
+            qué quiso decir cada elector, sino observar cuándo esos votos aumentan, bajo qué reglas
+            ocurre y en qué territorios se vuelven más visibles.
           </p>
         </div>
-        <div class="hypothesis">
-          <div class="hypothesis-badge">
-            <span>Hipótesis</span>
-            <small>cómo leer el voto que no elige</small>
-          </div>
-          <div class="hypothesis-text">
-            <p>
-              La hipótesis es que los votos nulos y blancos pueden reflejar una distancia
-              con la representación política cuando coinciden tres condiciones: voto obligatorio,
-              reducción de alternativas en segunda vuelta y una oferta presidencial más polarizada.
-            </p>
-            <p>
-              La clave está en no sobredimensionar el dato. Un voto nulo puede ser error, ambigüedad,
-              decisión deliberada o rechazo. Por eso, el análisis no busca descubrir la intención de
-              cada elector, sino observar patrones agregados en el tiempo y en el territorio.
-            </p>
-            <p>
-              En 2025, además, el fenómeno adquirió una dimensión política particular: el Partido de
-              la Gente llamó a votar nulo o blanco en segunda vuelta. Ese llamado no se tradujo
-              mecánicamente en una transferencia completa, pero sí abre una pregunta territorial:
-              dónde fue más visible el voto que no eligió.
-            </p>
-          </div>
+
+        <div class="text-card">
+          <p>
+            La hipótesis es que los votos nulos y blancos pueden operar como un termómetro electoral
+            cuando coinciden cuatro elementos: voto obligatorio, una segunda vuelta entre polos
+            ideológicos opuestos, electores que quedan sin una candidatura cercana tras la primera
+            vuelta y diferencias territoriales en la intensidad del fenómeno.
+          </p>
+
+          <p>
+            Por eso, la pregunta no es simplemente si en segunda vuelta sube el voto nulo. La serie
+            histórica muestra que no siempre ocurre. La pregunta es qué tipo de segunda vuelta vuelve
+            más visible el voto que no se convierte en apoyo válido a ninguna candidatura.
+          </p>
         </div>
       </div>
     </section>
+
     <section id="didactico">
       <div class="wrap">
         <div class="section-head">
-          <div class="chapter-number">02 · Qué estamos contando</div>
-          <h2>No todos los votos pesan igual</h2>
+          <span class="section-title">02 • Qué estamos contando</span>
           <p class="lead">
-            Para leer la historia hay que separar tres cosas: los votos válidos que se asignan a
-            candidaturas, los votos blancos y los votos nulos. Los dos últimos participan del acto
-            electoral, pero quedan fuera de la competencia válida por la presidencia.
+            Para leer esta historia hay que separar los votos válidos, los votos blancos y los votos
+            nulos. Los dos últimos participan del acto electoral, pero quedan fuera de la competencia
+            válida por la presidencia.
           </p>
         </div>
-        <div class="split-grid">
-          <div class="note-box">
+
+        <div class="definition-grid">
+          <div class="note-card">
             <h3>Voto blanco</h3>
             <p>
-              Es una papeleta sin preferencia marcada. Puede interpretarse como ausencia de opción,
-              distancia con la oferta o simplemente decisión de no elegir. En el conteo final no se
-              asigna a ninguna candidatura.
+              Es una papeleta sin preferencia marcada. Puede expresar ausencia de opción, distancia
+              con la oferta o simplemente una decisión de no elegir. En el conteo final no se asigna
+              a ninguna candidatura.
             </p>
           </div>
-          <div class="note-box">
+
+          <div class="note-card">
             <h3>Voto nulo</h3>
             <p>
               Es una papeleta que no puede ser considerada válida para una candidatura. Puede ocurrir
@@ -682,24 +670,27 @@ Copia todo y reemplaza tu index.html.
         </div>
       </div>
     </section>
+
     <section id="contexto-nulo">
       <div class="wrap">
         <div class="section-head">
-          <div class="chapter-number">03 · Contexto</div>
-          <h2>Lo que el voto nulo puede llegar a significar</h2>
+          <span class="section-title">03 • Lo que el voto nulo puede llegar a significar</span>
           <p class="lead">
-            El voto nulo no siempre pesa igual. En algunos escenarios puede ser un dato marginal;
-            en otros, puede cambiar la forma en que se lee una elección completa.
+            En algunos escenarios, los votos no válidos son un dato marginal. En otros, pueden cambiar
+            la forma en que se lee una elección completa.
           </p>
         </div>
+
         <article class="story-card">
-          <div class="story-card-text">
+          <div class="story-copy">
             <h3>Cuando el margen vuelve sensible cada voto</h3>
+
             <p>
               En elecciones extremadamente estrechas, los votos que no se transforman en apoyo válido
               pueden adquirir una carga política mayor. No porque funcionen como una candidatura oculta,
               sino porque su volumen convive con diferencias mínimas entre quienes compiten por el poder.
             </p>
+
             <p>
               El caso peruano permite observar ese límite. En la segunda vuelta presidencial de 2026,
               Keiko Fujimori obtuvo 50,135% de los votos válidos y superó a Roberto Sánchez por 49.641
@@ -707,279 +698,330 @@ Copia todo y reemplaza tu index.html.
               cada territorio y cada voto que queda fuera de la competencia válida modifica la lectura
               del resultado.
             </p>
+
             <p>
               Chile 2025 no se ubica en ese mismo escenario. El voto nulo y blanco fue políticamente
               visible, sobre todo por el llamado del Partido de la Gente a no apoyar a ninguna candidatura
               en segunda vuelta. Sin embargo, esa señal no operó como una fuerza capaz de definir por sí
               sola el resultado nacional.
             </p>
+
             <p>
               Esa diferencia importa para este reportaje. En Chile, el voto nulo y blanco no debe leerse
               como una candidatura invisible ni como una explicación total del resultado. Su valor está
               en otra parte: permite observar cuándo una parte del electorado participa, pero no convierte
               su voto en adhesión válida a ninguna de las opciones disponibles.
             </p>
-            <p>
-              Por eso, la pregunta no es si el voto nulo “ganó” o si reemplazó a una candidatura. La
-              pregunta es más precisa: cuándo aumenta, bajo qué reglas electorales ocurre y en qué
-              territorios se vuelve más intenso. Allí aparece la hipótesis de este reportaje: el voto
-              que no elige funciona como un termómetro electoral.
-            </p>
           </div>
+
           <p class="caption">
-            Perú funciona aquí como un caso límite: muestra cómo, en una elección estrecha, los votos
-            no válidos pueden modificar la lectura política del resultado. Chile exige otra mirada:
-            el voto nulo y blanco como señal de distancia electoral.
+            Perú funciona aquí como caso límite. Chile exige otra mirada: el voto nulo y blanco como
+            señal de distancia electoral, no como explicación total del resultado.
           </p>
         </article>
       </div>
     </section>
+
     <section id="nacional">
       <div class="wrap">
         <div class="section-head">
-          <div class="chapter-number">04 · Evolución nacional</div>
-          <h2>Una línea que cambia de escala</h2>
+          <span class="section-title">04 • Evolución nacional</span>
           <p class="lead">
-            La serie nacional permite ver que los votos nulos y blancos no crecen siempre de la
-            misma forma. Hay momentos de estabilidad, caídas durante el voto voluntario y un cambio
-            de escala cuando vuelve la obligatoriedad.
+            La serie nacional permite observar que los votos nulos y blancos no crecen de manera lineal.
+            Hay momentos de estabilidad, caídas durante el voto voluntario y un cambio de escala cuando
+            vuelve la obligatoriedad.
           </p>
         </div>
+
         <article class="story-card">
-          <div class="story-card-text">
+          <div class="story-copy">
             <h3>Del dato menor a una señal visible</h3>
+
             <p>
-              Durante buena parte del periodo, los votos nulos y blancos se mantuvieron como una
-              fracción acotada del total. No desaparecieron, pero tampoco ocuparon el centro de la
-              discusión presidencial.
+              Durante buena parte del periodo, los votos nulos y blancos se mantuvieron como una fracción
+              acotada del total. No desaparecieron, pero tampoco ocuparon el centro de la discusión
+              presidencial.
             </p>
+
             <p>
-              La lectura cambia cuando el sistema electoral vuelve a empujar a más personas hacia
-              las urnas. Con voto obligatorio, la pregunta ya no es solo quién gana, sino también
-              cuántas personas participan sin transformar su voto en apoyo válido a una candidatura.
+              La lectura cambia cuando el sistema electoral vuelve a empujar a más personas hacia las urnas.
+              Con voto obligatorio, la pregunta ya no es solo quién gana, sino también cuántas personas
+              participan sin transformar su voto en apoyo válido a una candidatura.
             </p>
           </div>
+
           <div class="chart-frame">
             <iframe
               src="graficos0/01_evolucion_nacional_nulos_blancos.html"
-              title="Evolución nacional de votos nulos y blancos en elecciones presidenciales chilenas"
+              title="Evolución nacional de votos nulos y blancos"
               loading="lazy">
             </iframe>
           </div>
+
           <p class="caption">
             Evolución nacional de votos nulos y blancos en elecciones presidenciales chilenas entre 1989 y 2025.
           </p>
         </article>
       </div>
     </section>
+
     <section id="sistema">
       <div class="wrap">
         <div class="section-head">
-          <div class="chapter-number">05 · Sistema electoral</div>
-          <h2>Del padrón congelado al voto obligatorio</h2>
+          <span class="section-title">05 • Sistema electoral</span>
           <p class="lead">
-            Para entender los votos nulos y blancos no basta con mirar porcentajes: también hay
-            que mirar quiénes entran al padrón y bajo qué reglas votan.
+            Para entender los votos nulos y blancos no basta con mirar porcentajes: también hay que
+            mirar quiénes entran al padrón y bajo qué reglas votan.
           </p>
         </div>
+
         <article class="story-card">
-          <div class="story-card-text">
+          <div class="story-copy">
             <h3>Del padrón congelado al voto obligatorio</h3>
+
             <p>
               Entre 1989 y 2009, la participación electoral chilena se mantuvo relativamente estable
               en cantidad de votantes, aunque la población habilitada para sufragar seguía creciendo.
               El sistema de inscripción voluntaria y voto obligatorio produjo un padrón cada vez más
               envejecido y congelado: votaban, en gran parte, quienes ya estaban inscritos.
             </p>
+
             <p>
               Ese escenario abrió paso a la inscripción automática y al voto voluntario. Pero el cambio
               tuvo un costo inmediato: en la primera vuelta presidencial de 2013, la participación cayó
               a 49,4%, cerca de 14 puntos porcentuales menos que en la presidencial de 2009. Durante ese
               ciclo, la participación presidencial solo volvió a superar el 50% en la segunda vuelta de 2021.
             </p>
+
             <p>
               La respuesta institucional llegó con el retorno del voto obligatorio con inscripción automática.
               En 2022, la participación alcanzó un 85,4%, mostrando el impacto de la obligatoriedad sobre
-              el padrón. Ese aumento de votantes también cambió la escala de los votos nulos y blancos:
-              al entrar más personas al sistema, creció también el volumen de votos que no se transforman
-              en una preferencia válida.
+              el padrón. Ese aumento también cambió la escala de los votos nulos y blancos: al entrar más
+              personas al sistema, creció también el volumen de votos que no se transforman en una preferencia válida.
             </p>
+
             <p>
               En 2025, la segunda vuelta volvió a mostrar esa tensión. El voto nulo y blanco aumentó en
-              un escenario de participación obligatoria y oferta reducida a dos candidaturas. Por eso,
-              el fenómeno debe leerse en dos niveles: como porcentaje, pero también como volumen dentro
-              de un padrón mucho más amplio.
+              un escenario de participación obligatoria y competencia entre polos opuestos. Por eso, el
+              fenómeno debe leerse en dos niveles: como porcentaje y como volumen dentro de un padrón
+              mucho más amplio.
             </p>
           </div>
+
           <div class="chart-frame">
             <iframe
               src="graficos0/03_sistema_electoral_nulos_blancos.html"
-              title="Sistema electoral y votos nulos y blancos en Chile"
+              title="Sistema electoral y votos nulos y blancos"
               loading="lazy">
             </iframe>
           </div>
+
           <p class="caption">
             Comparación entre reglas electorales, participación y votos nulos/blancos.
           </p>
         </article>
       </div>
     </section>
+
     <section id="vueltas">
       <div class="wrap">
         <div class="section-head">
-          <div class="chapter-number">06 · Primera y segunda vuelta</div>
-          <h2>La segunda vuelta estrecha la decisión</h2>
+          <span class="section-title">06 • Primera y segunda vuelta</span>
           <p class="lead">
-            El balotaje reduce la oferta a dos candidaturas. Esa reducción puede convertir la decisión
-            en una elección por adhesión, por descarte o en una participación sin preferencia válida.
+            La segunda vuelta no explica por sí sola el aumento del voto nulo y blanco. Si así fuera,
+            el fenómeno se repetiría con la misma intensidad en todos los balotajes. Lo relevante es
+            qué tipo de decisión concentra cada segunda vuelta.
           </p>
         </div>
+
         <article class="story-card">
-          <div class="story-card-text">
-            <h3>La segunda vuelta estrecha la decisión</h3>
+          <div class="story-copy">
+            <h3>Cuando la segunda vuelta no basta para explicar el aumento</h3>
+
             <p>
-              En primera vuelta, una elección presidencial ofrece más caminos. El voto puede repartirse
-              entre candidaturas de gobierno, oposición, independientes, fuerzas emergentes o proyectos
-              minoritarios. La oferta es más amplia y permite que distintas posiciones encuentren una
-              candidatura cercana.
+              La segunda vuelta presidencial no produce automáticamente un aumento del voto nulo y blanco.
+              La serie histórica muestra algo más matizado: hay balotajes donde estos votos se mantienen
+              bajos y otros donde se vuelven mucho más visibles.
             </p>
+
             <p>
-              La segunda vuelta cambia esa escena. La competencia se reduce a dos nombres y el voto deja
-              de operar solo como adhesión. Para una parte del electorado, la decisión puede transformarse
-              en una elección por descarte, una forma de frenar a una candidatura o, simplemente, una
-              disyuntiva donde ninguna opción representa suficientemente.
+              Por eso, el punto no está solo en que la oferta se reduzca a dos candidaturas. En 2025,
+              lo relevante fue que esa reducción concentró la decisión entre dos polos ideológicos opuestos.
+              Para una parte del electorado, especialmente quienes habían apoyado opciones fuera de esos
+              polos en primera vuelta, el balotaje pudo sentirse menos como una elección cercana y más como
+              una disyuntiva forzada.
             </p>
+
             <p>
-              En ese contexto, los votos nulos y blancos se vuelven una señal relevante. No permiten saber
-              si hubo protesta, error o indiferencia, pero sí muestran que hubo personas que participaron
-              en la elección sin convertir su voto en apoyo válido para una candidatura.
+              Bajo voto obligatorio, esa tensión se vuelve más visible. Personas que quizás habrían optado
+              por no participar deben concurrir a votar; y dentro de la urna, algunas no convierten su
+              participación en apoyo válido a ninguna candidatura.
             </p>
+
             <p>
-              Por eso, comparar primera y segunda vuelta permite observar si el voto que no elige aumenta
-              cuando la oferta presidencial se reduce. La diferencia entre ambas vueltas no prueba una causa,
-              pero ayuda a ubicar cuándo la distancia con las opciones disponibles se vuelve más visible.
+              En 2025, además, ese escenario se cruzó con el llamado del Partido de la Gente a votar nulo
+              o blanco. El resultado nacional no muestra una transferencia completa desde la votación de
+              Franco Parisi, pero sí permite preguntarse si esa señal fue más intensa en territorios donde
+              su candidatura había tenido mayor fuerza.
             </p>
           </div>
+
           <div class="chart-frame">
             <iframe
               src="graficos0/02_diferencia_primera_segunda_vuelta.html"
-              title="Diferencia de votos nulos y blancos entre primera y segunda vuelta"
+              title="Diferencia entre primera y segunda vuelta"
               loading="lazy">
             </iframe>
           </div>
+
           <p class="caption">
             Comparación de votos nulos y blancos entre primera y segunda vuelta presidencial.
           </p>
         </article>
       </div>
     </section>
+
     <section id="polarizacion">
       <div class="wrap">
         <div class="section-head">
-          <div class="chapter-number">07 · Oferta presidencial</div>
-          <h2>Cuando sube la temperatura</h2>
+          <span class="section-title">07 • Oferta presidencial</span>
           <p class="lead">
             La polarización no explica por sí sola el voto nulo y blanco, pero ayuda a observar el
-            clima de competencia en que ese voto aparece. Una oferta más distante puede hacer más
-            visible la incomodidad de quienes no encuentran representación.
+            clima de competencia en que ese voto aparece. En 2025, la segunda vuelta concentró la
+            decisión entre proyectos ubicados en polos opuestos.
           </p>
         </div>
+
         <article class="story-card">
-          <div class="story-card-text">
-            <h3>Polarización y oferta electoral</h3>
+          <div class="story-copy">
+            <h3>Cuando la oferta sube de temperatura</h3>
+
             <p>
-              No todas las elecciones ofrecen el mismo tipo de decisión. Algunas se ordenan en torno
-              a candidaturas más cercanas al centro; otras enfrentan proyectos más alejados entre sí.
-              En esos escenarios, el voto válido puede expresar adhesión, pero también puede estar
-              tensionado por el rechazo a la alternativa contraria.
+              No todas las elecciones presidenciales se ordenan con la misma intensidad ideológica.
+              Hay años en que las candidaturas principales se ubican más cerca del centro político
+              y otros en que la competencia se organiza entre proyectos más distantes entre sí.
             </p>
+
             <p>
-              El voto nulo y blanco permite mirar otro costado de esa tensión: el de quienes participan
-              sin elegir una candidatura. Por eso, la polarización se incorpora como contexto, no como
-              explicación única.
+              El voto nulo y blanco no permite saber por sí solo qué pensó cada elector. Puede expresar
+              rechazo, desinterés, error o una decisión consciente de no apoyar a nadie. Pero al observarlo
+              junto con la polarización de la oferta presidencial, aparece una pregunta central: qué ocurre
+              cuando la obligación de votar coincide con alternativas percibidas como más lejanas.
+            </p>
+
+            <p>
+              Por eso, este gráfico no busca probar que la polarización cause el voto nulo o blanco. Su
+              valor está en mostrar cuándo ambos fenómenos se aproximan y en qué elecciones la distancia
+              entre candidaturas parece coincidir con una mayor cantidad de votos que no se convierten en
+              apoyo válido.
             </p>
           </div>
+
           <div class="chart-frame">
             <iframe
               src="graficos0/05_polarizacion_oferta_presidencial.html"
-              title="Polarización de la oferta presidencial y votos nulos y blancos"
+              title="Polarización de la oferta presidencial"
               loading="lazy">
             </iframe>
           </div>
+
           <p class="caption">
             Relación exploratoria entre oferta presidencial, polarización y votos nulos/blancos.
           </p>
         </article>
       </div>
     </section>
-    <section class="divider-band">
+
+    <section class="soft-band">
       <div class="wrap">
-        <h2>El dato cambia cuando baja al territorio</h2>
+        <span class="section-title">El dato cambia cuando baja al territorio</span>
         <p>
           El promedio nacional puede esconder diferencias regionales. Algunas zonas muestran aumentos
           más intensos que otras, especialmente cuando se mira la segunda vuelta de 2025.
         </p>
       </div>
     </section>
+
     <section id="territorio">
       <div class="wrap">
         <div class="section-head">
-          <div class="chapter-number">08 · Territorio</div>
-          <h2>El mapa del voto que no eligió</h2>
+          <span class="section-title">08 • Territorio</span>
           <p class="lead">
             Mirar el territorio permite saber si el aumento del voto nulo y blanco fue parejo o si
-            se concentró con más fuerza en ciertas regiones. La lectura regional es clave para no
-            convertir el promedio nacional en una explicación total.
+            se concentró con más fuerza en ciertas regiones. La lectura regional evita convertir el
+            promedio nacional en una explicación total.
           </p>
         </div>
+
         <article class="story-card">
-          <div class="story-card-text">
+          <div class="story-copy">
             <h3>Un país, varias intensidades</h3>
+
             <p>
               La segunda vuelta de 2025 muestra que el voto nulo y blanco no crece con la misma fuerza
               en todo Chile. Algunas regiones del norte aparecen con niveles más altos, mientras que
               otras zonas muestran aumentos más moderados.
             </p>
+
             <p>
-              Esta diferencia territorial abre una pregunta que queda planteada para el análisis:
-              si el llamado al voto nulo o blanco tuvo un efecto limitado a nivel nacional, ¿pudo haber
-              dejado una huella más visible en territorios donde el electorado de Franco Parisi fue más fuerte?
+              Esa diferencia no entrega una causa por sí sola, pero permite mirar el fenómeno con mayor
+              precisión. El voto que no eligió no fue solo un dato nacional: también tuvo una distribución
+              territorial que ayuda a entender dónde se volvió más visible.
             </p>
           </div>
-          <div class="chart-frame wide">
+
+          <div class="chart-frame tall">
             <iframe
               src="graficos0/07_heatmap_regional_nulos_blancos.html"
               title="Mapa de calor regional de votos nulos y blancos"
               loading="lazy">
             </iframe>
           </div>
+
           <p class="caption">
-            Mapa de calor regional de votos nulos y blancos en elecciones presidenciales. Los colores más intensos
-            indican mayor porcentaje de votos que no se transformaron en apoyo válido a candidaturas.
+            Mapa de calor regional de votos nulos y blancos. Los colores más intensos indican mayor porcentaje
+            de votos que no se transformaron en apoyo válido a candidaturas.
           </p>
         </article>
+
+        <div class="parisi-note">
+          <span>Lectura territorial</span>
+          <h3>Una pista que queda abierta</h3>
+
+          <p>
+            En 2025, el llamado del Partido de la Gente a votar nulo o blanco no tuvo una traducción
+            completa a nivel nacional. Sin embargo, la distribución regional permite dejar abierta una
+            pregunta: si esa señal fue más visible en zonas donde la candidatura de Franco Parisi había
+            tenido mayor fuerza en primera vuelta.
+          </p>
+        </div>
       </div>
     </section>
+
     <section id="regiones">
       <div class="wrap">
         <div class="section-head">
-          <div class="chapter-number">09 · Exploración regional</div>
-          <h2>Busca una región</h2>
+          <span class="section-title">09 • Exploración regional</span>
           <p class="lead">
             Selecciona una región para revisar su evolución propia. El gráfico se actualiza dentro
             de esta misma página y permite observar cuándo aparece el aumento más fuerte.
           </p>
         </div>
+
         <div class="region-tools">
           <aside class="region-panel">
-            <h3>Explorador</h3>
-            <input
-              class="search-input"
-              id="regionSearch"
-              type="search"
-              placeholder="Buscar región..."
-              aria-label="Buscar región"
-            >
+            <h3>Buscar región</h3>
+
+            <div class="search-row">
+              <input
+                class="search-input"
+                id="regionSearch"
+                type="search"
+                placeholder="Escribe una región..."
+                aria-label="Buscar región"
+              >
+            </div>
+
             <div class="filter-row" aria-label="Filtros por zona">
               <button class="filter-btn active" data-zone="Todas">Todas</button>
               <button class="filter-btn" data-zone="Norte">Norte</button>
@@ -988,14 +1030,17 @@ Copia todo y reemplaza tu index.html.
               <button class="filter-btn" data-zone="Sur">Sur</button>
               <button class="filter-btn" data-zone="Austral">Austral</button>
             </div>
+
             <div class="region-list" id="regionList"></div>
           </aside>
+
           <article class="region-display">
             <div class="region-copy">
               <h3 id="regionTitle">Antofagasta</h3>
               <p id="regionTextA"></p>
               <p id="regionTextB"></p>
             </div>
+
             <div class="region-frame">
               <iframe
                 id="regionFrame"
@@ -1004,62 +1049,59 @@ Copia todo y reemplaza tu index.html.
                 loading="lazy">
               </iframe>
             </div>
+
             <p class="caption" id="regionCaption">
               Evolución regional de votos nulos y blancos en Antofagasta.
             </p>
           </article>
         </div>
-        <div class="method-box" id="metodologia">
-          <div>
-            <div class="chapter-number">10 · Metodología</div>
-            <h2>Cómo se leyó la serie</h2>
-          </div>
-          <div>
-            <p>
-              La base reúne resultados presidenciales por año, vuelta y región, considerando votos
-              emitidos, votos válidos, votos nulos y votos blancos. El análisis combina porcentajes
-              y volúmenes para evitar que el tamaño del padrón esconda cambios relevantes.
-            </p>
-            <ul>
-              <li>Periodo observado: elecciones presidenciales chilenas entre 1989 y 2025.</li>
-              <li>Unidad de análisis: año electoral, vuelta y región.</li>
-              <li>Indicador principal: porcentaje de votos nulos y blancos sobre votos emitidos.</li>
-              <li>Fuentes base: SERVEL, Tribunal Calificador de Elecciones, Biblioteca del Congreso Nacional y registros históricos del Ministerio del Interior para los años más antiguos.</li>
-            </ul>
-          </div>
+
+        <div class="method-card" id="metodologia">
+          <span class="section-title">10 • Metodología</span>
+
+          <p>
+            La base reúne resultados presidenciales por año, vuelta y región, considerando votos
+            emitidos, votos válidos, votos nulos y votos blancos. El análisis combina porcentajes
+            y volúmenes para evitar que el tamaño del padrón esconda cambios relevantes.
+          </p>
+
+          <ul>
+            <li>Periodo observado: elecciones presidenciales chilenas entre 1989 y 2025.</li>
+            <li>Unidad de análisis: año electoral, vuelta y región.</li>
+            <li>Indicador principal: porcentaje de votos nulos y blancos sobre votos emitidos.</li>
+            <li>Fuentes base: SERVEL, Tribunal Calificador de Elecciones, Biblioteca del Congreso Nacional y registros históricos del Ministerio del Interior para los años más antiguos.</li>
+          </ul>
         </div>
       </div>
     </section>
+
     <section class="closing">
       <div class="wrap">
-        <div class="closing-grid">
-          <div>
-            <div class="chapter-number">Cierre</div>
-            <h2>Lo que queda fuera del resultado</h2>
-            <p>
-              Los votos nulos y blancos no explican por sí solos una elección. No permiten saber
-              si una persona se equivocó, protestó, rechazó a las candidaturas o simplemente no
-              encontró una opción cercana. Pero cuando aumentan, muestran una zona del electorado
-              que participó sin entregar apoyo válido a ninguna candidatura.
-            </p>
-            <p>
-              En 2025, esa zona se volvió más visible por la combinación de voto obligatorio,
-              segunda vuelta, polarización y el llamado del Partido de la Gente a votar nulo o
-              blanco. El fenómeno no reemplaza al resultado presidencial, pero sí ayuda a mirar
-              lo que queda alrededor de él: participación sin adhesión, presencia electoral sin
-              representación clara.
-            </p>
-          </div>
-        </div>
+        <span class="section-title">Cierre • Lo que queda fuera del resultado</span>
+
+        <p>
+          Los votos nulos y blancos no explican por sí solos una elección. No permiten saber si una
+          persona se equivocó, protestó, rechazó a las candidaturas o simplemente no encontró una opción
+          cercana. Pero cuando aumentan, muestran una zona del electorado que participó sin entregar
+          apoyo válido a ninguna candidatura.
+        </p>
+
+        <p>
+          En 2025, esa zona se volvió más visible por la combinación de voto obligatorio, segunda vuelta
+          entre polos opuestos, polarización y llamado al voto nulo o blanco. El fenómeno no reemplaza
+          al resultado presidencial, pero sí ayuda a mirar lo que queda alrededor de él: participación
+          sin adhesión, presencia electoral sin representación clara.
+        </p>
       </div>
     </section>
   </main>
+
   <footer>
-    <div class="wrap footer-row">
-      <span>ANÚLEMELO · Reportaje visual</span>
-      <span>Elecciones presidenciales chilenas · 1989–2025</span>
+    <div class="wrap">
+      ANÚLEMELO · Reportaje visual sobre elecciones presidenciales chilenas, 1989–2025
     </div>
   </footer>
+
   <script>
     const regiones = [
       {
@@ -1067,14 +1109,14 @@ Copia todo y reemplaza tu index.html.
         zona: "Norte",
         archivo: "graficos0/region_arica_y_parinacota.html",
         textoA: "En Arica y Parinacota, la serie disponible comienza en 2009, porque la región no existía como unidad separada durante todo el periodo histórico. Desde entonces, el voto nulo y blanco se mantuvo bajo en las elecciones de voto voluntario, especialmente en segundas vueltas como 2017 y 2021.",
-        textoB: "El cambio más visible aparece en 2025. En la segunda vuelta, los votos nulos y blancos llegan a cerca de 8,5% de los votos emitidos, el punto más alto de la serie regional. Esto sugiere que, bajo voto obligatorio y con una oferta reducida a dos candidaturas, la región muestra una señal más intensa de distancia electoral que en los ciclos anteriores."
+        textoB: "El cambio más visible aparece en 2025. En la segunda vuelta, los votos nulos y blancos llegan a cerca de 8,5% de los votos emitidos, el punto más alto de la serie regional. Esto sugiere que, bajo voto obligatorio y con una oferta concentrada en polos opuestos, la región muestra una señal más intensa de distancia electoral que en ciclos anteriores."
       },
       {
         nombre: "Tarapacá",
         zona: "Norte",
         archivo: "graficos0/region_tarapaca.html",
         textoA: "Tarapacá muestra una trayectoria marcada por bajos porcentajes de votos nulos y blancos durante gran parte del periodo. En especial, las elecciones de voto voluntario mantienen niveles reducidos, con mínimos cercanos al 1% en segunda vuelta.",
-        textoB: "En 2025 se produce el salto más visible: la segunda vuelta alcanza cerca de 8,2%. La diferencia entre la primera y la segunda vuelta de ese año muestra que la reducción de alternativas electorales pudo haber intensificado el voto que no elige. No se trata de una tendencia sostenida durante toda la serie, sino de un aumento concentrado en el nuevo contexto de voto obligatorio."
+        textoB: "En 2025 se produce el salto más visible: la segunda vuelta alcanza cerca de 8,2%. No se trata de una tendencia sostenida durante toda la serie, sino de un aumento concentrado en el nuevo contexto de voto obligatorio y competencia entre polos opuestos."
       },
       {
         nombre: "Antofagasta",
@@ -1095,7 +1137,7 @@ Copia todo y reemplaza tu index.html.
         zona: "Norte",
         archivo: "graficos0/region_coquimbo.html",
         textoA: "Coquimbo mantiene durante gran parte de la serie un comportamiento moderado, sin un crecimiento sostenido del voto nulo y blanco. Los porcentajes se mantienen bajos en el periodo de voto voluntario y no muestran por sí solos una señal de crisis electoral.",
-        textoB: "En 2025, sin embargo, la segunda vuelta llega a cerca de 8,8%, el máximo regional de la serie. La diferencia con la primera vuelta de ese mismo año muestra que el balotaje intensifica el voto que no elige. En este caso, el dato funciona como una señal de contexto: el aumento aparece cuando se combinan obligatoriedad y reducción de la oferta presidencial."
+        textoB: "En 2025, sin embargo, la segunda vuelta llega a cerca de 8,8%, el máximo regional de la serie. El dato funciona como una señal de contexto: el aumento aparece cuando se combinan obligatoriedad, balotaje y una oferta concentrada en polos opuestos."
       },
       {
         nombre: "Valparaíso",
@@ -1175,53 +1217,67 @@ Copia todo y reemplaza tu index.html.
         textoB: "En 2025, la segunda vuelta alcanza cerca de 7,9%, el máximo regional de la serie. El aumento es relevante y ubica a Magallanes por sobre varias regiones del centro y sur. Esto muestra que la intensidad territorial de 2025 no se concentra únicamente en el norte: también aparece con fuerza en el extremo austral."
       }
     ];
+
     const regionList = document.getElementById("regionList");
     const regionSearch = document.getElementById("regionSearch");
     const filterButtons = document.querySelectorAll(".filter-btn");
+
     const regionTitle = document.getElementById("regionTitle");
     const regionTextA = document.getElementById("regionTextA");
     const regionTextB = document.getElementById("regionTextB");
     const regionFrame = document.getElementById("regionFrame");
     const regionCaption = document.getElementById("regionCaption");
+
     let activeZone = "Todas";
     let activeRegion = "Antofagasta";
+
     function renderRegions() {
       const query = regionSearch.value.trim().toLowerCase();
+
       const filtered = regiones.filter((region) => {
         const matchesZone = activeZone === "Todas" || region.zona === activeZone;
         const matchesQuery = region.nombre.toLowerCase().includes(query);
         return matchesZone && matchesQuery;
       });
+
       regionList.innerHTML = "";
+
       filtered.forEach((region) => {
         const button = document.createElement("button");
         button.className = "region-btn";
+
         if (region.nombre === activeRegion) {
           button.classList.add("active");
         }
-        button.innerHTML = `
-          <strong>${region.nombre}</strong>
-          <span>${region.zona}</span>
-        `;
+
+        button.textContent = region.nombre;
+
         button.addEventListener("click", () => {
           setRegion(region.nombre);
         });
+
         regionList.appendChild(button);
       });
     }
+
     function setRegion(nombre) {
       const region = regiones.find((item) => item.nombre === nombre);
       if (!region) return;
+
       activeRegion = region.nombre;
+
       regionTitle.textContent = region.nombre;
       regionTextA.textContent = region.textoA;
       regionTextB.textContent = region.textoB;
       regionFrame.src = region.archivo;
       regionFrame.title = `Gráfico regional de ${region.nombre}`;
       regionCaption.textContent = `Evolución regional de votos nulos y blancos en ${region.nombre}.`;
+
       renderRegions();
     }
+
     regionSearch.addEventListener("input", renderRegions);
+
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
         filterButtons.forEach((btn) => btn.classList.remove("active"));
@@ -1230,22 +1286,25 @@ Copia todo y reemplaza tu index.html.
         renderRegions();
       });
     });
-    function centrarGraficos() {
+
+    function centerCharts() {
       const iframes = document.querySelectorAll(".chart-frame iframe, .region-frame iframe");
+
       iframes.forEach((iframe) => {
         iframe.addEventListener("load", () => {
           try {
             const doc = iframe.contentDocument || iframe.contentWindow.document;
             doc.body.style.margin = "0";
-            doc.body.style.padding = "18px";
+            doc.body.style.padding = "16px";
             doc.body.style.display = "flex";
             doc.body.style.justifyContent = "center";
             doc.body.style.alignItems = "flex-start";
             doc.body.style.background = "#ffffff";
-            const vega = doc.querySelector(".vega-embed");
-            if (vega) {
-              vega.style.margin = "0 auto";
-              vega.style.maxWidth = "100%";
+
+            const chart = doc.querySelector(".vega-embed");
+            if (chart) {
+              chart.style.margin = "0 auto";
+              chart.style.maxWidth = "100%";
             }
           } catch (error) {
             console.log("No se pudo centrar este gráfico:", error);
@@ -1253,9 +1312,10 @@ Copia todo y reemplaza tu index.html.
         });
       });
     }
+
     renderRegions();
     setRegion("Antofagasta");
-    centrarGraficos();
+    centerCharts();
   </script>
 </body>
 </html>
