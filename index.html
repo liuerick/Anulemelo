@@ -734,29 +734,6 @@
 </head>
 
 <body>
-  <section class="video-hero">
- <video
-        id="introVideo"
-        playsinline
-        preload="auto">
-
-        <source src="videos/intro.mp4" type="video/mp4">
-
-    </video>
-
-   
-
-    <button id="startButton" class="start-button">
-        ▶ Comenzar reportaje
-    </button>
-
-
-    <div class="video-overlay"></div>
-
-    <div class="scroll-indicator">
-        ↓ Desliza para comenzar
-    </div>
-
 </section>
   <header>
     <div class="wrap topbar">
@@ -1564,22 +1541,7 @@
     centerCharts();
     const introVideo = document.getElementById("introVideo");
 
-introVideo.addEventListener("click", () => {
-    introVideo.muted = false;
-    introVideo.play();
-});
-    const video = document.getElementById("introVideo");
-const startButton = document.getElementById("startButton");
 
-startButton.addEventListener("click", () => {
-
-    video.play();
-
-    startButton.style.display = "none";
-
-});
-    const video = document.getElementById("introVideo");
-const startButton = document.getElementById("startButton");
   </script>
 </body>
 </html>
