@@ -705,15 +705,16 @@
 <body>
   <section class="video-hero">
 
-    <video
-        autoplay
-        muted
-        loop
-        playsinline>
+   <video
+    id="introVideo"
+    autoplay
+    muted
+    loop
+    playsinline>
 
-        <source src="videos/intro.mp4" type="video/mp4">
+    <source src="videos/intro.mp4" type="video/mp4">
 
-    </video>
+</video>
 
     <div class="video-overlay"></div>
 
@@ -1526,6 +1527,12 @@
     renderRegions();
     setRegion("Antofagasta");
     centerCharts();
+    const introVideo = document.getElementById("introVideo");
+
+introVideo.addEventListener("click", () => {
+    introVideo.muted = false;
+    introVideo.play();
+});
   </script>
 </body>
 </html>
