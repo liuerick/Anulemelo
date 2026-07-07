@@ -336,7 +336,56 @@
       gap: 22px;
       max-width: 980px;
     }
+.participation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 34px 0;
+  max-width: 900px;
+}
 
+.participation-card {
+  background: rgba(255, 248, 232, 0.9);
+  border: 2px solid rgba(118, 35, 31, 0.18);
+  border-radius: 26px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 18px 40px rgba(60,35,20,.08);
+}
+
+.participation-year {
+  font-family: "Archivo Black", sans-serif;
+  color: var(--red-dark);
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+.participation-number {
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(3.4rem,7vw,5.6rem);
+  color: var(--red);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.participation-label {
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.participation-note {
+  color: var(--muted);
+  margin-top: 6px;
+  font-size: .95rem;
+}
+
+@media (max-width:640px){
+
+  .participation-grid{
+    grid-template-columns:1fr;
+  }
+
+}
     .note-card {
       padding: 28px;
     }
@@ -804,11 +853,32 @@
             </p>
 
             <p>
-              Ese escenario abrió paso a la inscripción automática y al voto voluntario. Pero el cambio
-              tuvo un costo inmediato: en la primera vuelta presidencial de 2013, la participación cayó
+              Ese escenario abrió paso a la inscripción automática y al voto voluntario. Pero el cambio tuvo
+              un costo inmediato: en la primera vuelta presidencial de 2013, la participación cayó
               a 49,4%, cerca de 14 puntos porcentuales menos que en la presidencial de 2009. Durante ese
               ciclo, la participación presidencial solo volvió a superar el 50% en la segunda vuelta de 2021.
             </p>
+            <div class="participation-grid">
+
+  <div class="participation-card">
+    <div class="participation-year">2013</div>
+    <div class="participation-number">49,4%</div>
+    <div class="participation-label">Participación electoral</div>
+    <div class="participation-note">
+      Primera presidencial con voto voluntario.
+    </div>
+  </div>
+
+  <div class="participation-card">
+    <div class="participation-year">2025</div>
+    <div class="participation-number">85,4%</div>
+    <div class="participation-label">Participación electoral</div>
+    <div class="participation-note">
+      Participación con voto obligatorio.
+    </div>
+  </div>
+
+</div>
 
             <p>
               La respuesta institucional llegó con el retorno del voto obligatorio con inscripción automática
