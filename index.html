@@ -21,82 +21,73 @@
   >
 
   <style>
-    .start-button{
+    .start-button {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 18px 34px;
+      border: none;
+      border-radius: 18px;
+      background: #b63d35;
+      color: white;
+      font-family: "Archivo Black", sans-serif;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 15px 35px rgba(0,0,0,.25);
+      transition: .25s;
+    }
 
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
+    .start-button:hover {
+      transform: translate(-50%, -50%) scale(1.05);
+    }
 
-    padding:18px 34px;
-
-    border:none;
-    border-radius:18px;
-
-    background:#b63d35;
-    color:white;
-
-    font-family:"Archivo Black",sans-serif;
-    font-size:1.1rem;
-
-    cursor:pointer;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.25);
-
-    transition:.25s;
-
-}
-
-.start-button:hover{
-
-    transform:translate(-50%,-50%) scale(1.05);
-
-}
     .video-hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.video-hero video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.video-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,.35);
-}
-
-.scroll-indicator {
-    position: absolute;
-    bottom: 35px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-size: .9rem;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    font-weight: 700;
-    animation: bounce 1.8s infinite;
-}
-
-@keyframes bounce {
-    0%,20%,50%,80%,100%{
-        transform:translate(-50%,0);
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
     }
 
-    40%{
-        transform:translate(-50%,-12px);
+    .video-hero video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    60%{
-        transform:translate(-50%,-6px);
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.35);
     }
-}
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 35px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: .9rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      animation: bounce 1.8s infinite;
+    }
+
+    @keyframes bounce {
+      0%,20%,50%,80%,100% {
+        transform: translate(-50%,0);
+      }
+
+      40% {
+        transform: translate(-50%,-12px);
+      }
+
+      60% {
+        transform: translate(-50%,-6px);
+      }
+    }
+
     :root {
       --bg: #f1dfc2;
       --paper: #fff8e8;
@@ -412,76 +403,71 @@
       gap: 22px;
       max-width: 980px;
     }
-.participation-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  margin: 34px 0;
-  max-width: 900px;
-}
 
-.participation-card {
-  background: rgba(255, 248, 232, 0.9);
-  border: 2px solid rgba(118, 35, 31, 0.18);
-  border-radius: 26px;
-  padding: 30px;
-  text-align: center;
-  box-shadow: 0 18px 40px rgba(60,35,20,.08);
-}
+    .participation-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin: 34px 0;
+      max-width: 900px;
+    }
 
-.participation-year {
-  font-family: "Archivo Black", sans-serif;
-  color: var(--red-dark);
-  font-size: 1.4rem;
-  margin-bottom: 12px;
-}
+    .participation-card {
+      background: rgba(255, 248, 232, 0.9);
+      border: 2px solid rgba(118, 35, 31, 0.18);
+      border-radius: 26px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 18px 40px rgba(60,35,20,.08);
+    }
 
-.participation-number {
-  font-family: "Archivo Black", sans-serif;
-  font-size: clamp(3.4rem,7vw,5.6rem);
-  color: var(--red);
-  line-height: 1;
-  margin-bottom: 14px;
-}
+    .participation-year {
+      font-family: "Archivo Black", sans-serif;
+      color: var(--red-dark);
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
 
-.participation-label {
-  font-weight: 800;
-  font-size: 1rem;
-}
+    .participation-number {
+      font-family: "Archivo Black", sans-serif;
+      font-size: clamp(3.4rem,7vw,5.6rem);
+      color: var(--red);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
 
-.participation-note {
-  color: var(--muted);
-  margin-top: 6px;
-  font-size: .95rem;
-}
+    .participation-label {
+      font-weight: 800;
+      font-size: 1rem;
+    }
 
-@media (max-width:640px){
+    .participation-note {
+      color: var(--muted);
+      margin-top: 6px;
+      font-size: .95rem;
+    }
 
-  .participation-grid{
-    grid-template-columns:1fr;
-  }
-
-}
     .story-image {
-  max-width: 760px;
-  margin: 36px auto;
-}
+      max-width: 760px;
+      margin: 36px auto;
+    }
 
-.story-image img {
-  width: 100%;
-  display: block;
-  border-radius: 24px;
-  border: 1px solid rgba(118,35,31,.18);
-  box-shadow: 0 18px 45px rgba(60,35,20,.12);
-}
+    .story-image img {
+      width: 100%;
+      display: block;
+      border-radius: 24px;
+      border: 1px solid rgba(118,35,31,.18);
+      box-shadow: 0 18px 45px rgba(60,35,20,.12);
+    }
 
-.story-image figcaption {
-  margin-top: 12px;
-  color: var(--muted);
-  font-size: .88rem;
-  text-align: center;
-  font-style: italic;
-}
+    .story-image figcaption {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: .88rem;
+      text-align: center;
+      font-style: italic;
+    }
+
     .note-card {
       padding: 28px;
     }
@@ -673,6 +659,46 @@
       margin-top: 8px;
     }
 
+    .video-final {
+      padding: 90px 0;
+      background: var(--black);
+      color: var(--paper);
+    }
+
+    .video-final-card {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 34px;
+      border-radius: 30px;
+      background: rgba(255, 248, 232, 0.06);
+      border: 1px solid rgba(255, 248, 232, 0.16);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+      text-align: center;
+    }
+
+    .video-final h2 {
+      color: var(--paper);
+      font-size: clamp(2rem, 5vw, 4rem);
+      margin-bottom: 18px;
+    }
+
+    .video-final p {
+      max-width: 720px;
+      margin: 0 auto 28px;
+      color: rgba(255, 248, 232, 0.75);
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.14rem;
+      line-height: 1.65;
+    }
+
+    .video-cierre {
+      width: 100%;
+      display: block;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 248, 232, 0.16);
+      background: #000;
+    }
+
     footer {
       background: var(--black);
       color: rgba(255, 248, 232, 0.55);
@@ -729,12 +755,24 @@
         height: 620px;
         padding: 14px;
       }
+
+      .participation-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .video-final {
+        padding: 62px 0;
+      }
+
+      .video-final-card {
+        padding: 22px;
+        border-radius: 24px;
+      }
     }
   </style>
 </head>
 
 <body>
-</section>
   <header>
     <div class="wrap topbar">
       <a class="brand" href="#">ANÚLEMELO</a>
@@ -777,23 +815,26 @@
         <div class="section-head">
           <span class="section-title">¿Vale la pena observar el voto nulo?</span>
           <p class="lead">
-           Este proyecto no busca interpretar el significado del voto nulo, sino comprender su comportamiento: ¿por qué aumenta en algunas
-           elecciones y disminuye en otras? Para responder esas preguntas, primero es necesario observar el contexto de cada proceso electoral. 
-           Ese contexto reúne distintos factores que inciden directamente en la proporción de votos nulos y blancos: el nivel de polarización política,
-           la oferta presidencial, si se trata de una primera o segunda vuelta, el sistema electoral vigente y las diferencias geográficas.
-           Pero partamos por el principio. 
+            Este proyecto no busca interpretar el significado del voto nulo, sino comprender su comportamiento: ¿por qué aumenta en algunas
+            elecciones y disminuye en otras? Para responder esas preguntas, primero es necesario observar el contexto de cada proceso electoral.
+            Ese contexto reúne distintos factores que inciden directamente en la proporción de votos nulos y blancos: el nivel de polarización política,
+            la oferta presidencial, si se trata de una primera o segunda vuelta, el sistema electoral vigente y las diferencias geográficas.
+            Pero partamos por el principio.
           </p>
-           <div class="text-card">
-          <figure class="story-image">
-    <img
-        src="imagenes/voto nulo.jpg.jpeg"
-        alt="Papeleta de votación marcada como voto nulo">
-    <figcaption>
-        Un voto nulo no se contabiliza como preferencia para ninguna candidatura,
-        pero sigue formando parte de la participación electoral.
-    </figcaption>
-</figure>
         </div>
+
+        <div class="text-card">
+          <figure class="story-image">
+            <img
+              src="imagenes/voto nulo.jpg.jpeg"
+              alt="Papeleta de votación marcada como voto nulo">
+            <figcaption>
+              Un voto nulo no se contabiliza como preferencia para ninguna candidatura,
+              pero sigue formando parte de la participación electoral.
+            </figcaption>
+          </figure>
+        </div>
+
         <div class="text-card">
           <p>
             El voto nulo y blanco no sube siempre por las mismas razones. Tampoco basta con decir
@@ -915,27 +956,26 @@
               a 49,4%, cerca de 14 puntos porcentuales menos que en la presidencial de 2009. Durante ese
               ciclo, la participación presidencial solo volvió a superar el 50% en la segunda vuelta de 2021.
             </p>
+
             <div class="participation-grid">
+              <div class="participation-card">
+                <div class="participation-year">2013</div>
+                <div class="participation-number">49,4%</div>
+                <div class="participation-label">Participación electoral</div>
+                <div class="participation-note">
+                  Primera presidencial con voto voluntario.
+                </div>
+              </div>
 
-  <div class="participation-card">
-    <div class="participation-year">2013</div>
-    <div class="participation-number">49,4%</div>
-    <div class="participation-label">Participación electoral</div>
-    <div class="participation-note">
-      Primera presidencial con voto voluntario.
-    </div>
-  </div>
-
-  <div class="participation-card">
-    <div class="participation-year">2025</div>
-    <div class="participation-number">85,4%</div>
-    <div class="participation-label">Participación electoral</div>
-    <div class="participation-note">
-      Participación con voto obligatorio.
-    </div>
-  </div>
-
-</div>
+              <div class="participation-card">
+                <div class="participation-year">2025</div>
+                <div class="participation-number">85,4%</div>
+                <div class="participation-label">Participación electoral</div>
+                <div class="participation-note">
+                  Participación con voto obligatorio.
+                </div>
+              </div>
+            </div>
 
             <p>
               La respuesta institucional llegó con el retorno del voto obligatorio con inscripción automática
@@ -1033,18 +1073,18 @@
             clima de competencia en que ese voto aparece. En 2025, la segunda vuelta concentró la
             decisión entre proyectos ubicados en polos opuestos.
           </p>
-           <div class="text-card">
+        </div>
+
+        <div class="text-card">
           <figure class="story-image">
+            <img
+              src="imagenes/kast jara.jpeg"
+              alt="Jeannette Jara y José Antonio Kast durante la campaña presidencial">
 
-    <img
-        src="imagenes/kast jara.jpeg"
-        alt="Jeannette Jara y José Antonio Kast durante la campaña presidencial">
-
-    <figcaption>
-        La segunda vuelta de 2025 enfrentó a dos candidaturas ubicadas en polos opuestos del espectro político.
-    </figcaption>
-
-</figure>
+            <figcaption>
+              La segunda vuelta de 2025 enfrentó a dos candidaturas ubicadas en polos opuestos del espectro político.
+            </figcaption>
+          </figure>
         </div>
 
         <article class="story-card">
@@ -1148,19 +1188,17 @@
             para mirar después: si esa señal fue más visible en zonas donde Franco Parisi
             había tenido mayor fuerza en primera vuelta.
           </p>
-       
 
-    <figure class="story-image">
+          <figure class="story-image">
+            <img
+              src="imagenes/parisi.jpeg"
+              alt="Franco Parisi durante un acto de campaña">
 
-        <img
-            src="imagenes/parisi.jpeg"
-            alt="Franco Parisi durante un acto de campaña">
-
-        <figcaption>
-            En la segunda vuelta de 2025, el Partido de la Gente llamó a votar nulo o blanco tras la exclusión de Franco Parisi del balotaje.
-        </figcaption>
-
-    </figure>
+            <figcaption>
+              En la segunda vuelta de 2025, el Partido de la Gente llamó a votar nulo o blanco tras la exclusión de Franco Parisi del balotaje.
+            </figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -1224,7 +1262,7 @@
       </div>
     </section>
 
-     <section id="contexto-nulo">
+    <section id="contexto-nulo">
       <div class="wrap">
         <div class="section-head">
           <span class="section-title">Lo que el voto nulo puede llegar a significar</span>
@@ -1296,13 +1334,32 @@
         </div>
       </div>
     </section>
+
+    <section class="video-final" id="video-final">
+      <div class="wrap">
+        <div class="video-final-card">
+          <h2>El voto que deja una señal</h2>
+
+          <p>
+            Al final, el voto nulo no solo aparece como ausencia de preferencia.
+            También puede leerse como una señal de distancia, tensión o rechazo frente
+            a una oferta presidencial que no siempre logra representar a todos quienes participan.
+          </p>
+
+          <video controls class="video-cierre">
+            <source src="videos/intro.mp4" type="video/mp4">
+            Tu navegador no puede reproducir este video.
+          </video>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
     <div class="wrap">
       ANÚLEMELO · Reportaje visual sobre elecciones presidenciales chilenas, 1989–2025.
       Florencia Aguirre, Erick Liu y Vicente Soza - Narración Gráfica 2026 primer semestre.
-      https://github.com/liuerick/Anulemelo 
+      https://github.com/liuerick/Anulemelo
     </div>
   </footer>
 
@@ -1535,9 +1592,6 @@
     renderRegions();
     setRegion("Antofagasta");
     centerCharts();
-    const introVideo = document.getElementById("introVideo");
-
-
   </script>
 </body>
 </html>
