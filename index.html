@@ -21,6 +21,37 @@
   >
 
   <style>
+    .start-button{
+
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+
+    padding:18px 34px;
+
+    border:none;
+    border-radius:18px;
+
+    background:#b63d35;
+    color:white;
+
+    font-family:"Archivo Black",sans-serif;
+    font-size:1.1rem;
+
+    cursor:pointer;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+    transition:.25s;
+
+}
+
+.start-button:hover{
+
+    transform:translate(-50%,-50%) scale(1.05);
+
+}
     .video-hero {
     position: relative;
     width: 100%;
@@ -704,17 +735,21 @@
 
 <body>
   <section class="video-hero">
+ <video
+        id="introVideo"
+        playsinline
+        preload="auto">
 
-   <video
-    id="introVideo"
-    autoplay
-    muted
-    loop
-    playsinline>
+        <source src="videos/intro.mp4" type="video/mp4">
 
-    <source src="videos/intro.mp4" type="video/mp4">
+    </video>
 
-</video>
+    <div class="video-overlay"></div>
+
+    <button id="startButton" class="start-button">
+        ▶ Comenzar reportaje
+    </button>
+
 
     <div class="video-overlay"></div>
 
@@ -1532,6 +1567,16 @@
 introVideo.addEventListener("click", () => {
     introVideo.muted = false;
     introVideo.play();
+});
+    const video = document.getElementById("introVideo");
+const startButton = document.getElementById("startButton");
+
+startButton.addEventListener("click", () => {
+
+    video.play();
+
+    startButton.style.display = "none";
+
 });
   </script>
 </body>
