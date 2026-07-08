@@ -21,73 +21,6 @@
   >
 
   <style>
-    .start-button {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      padding: 18px 34px;
-      border: none;
-      border-radius: 18px;
-      background: #b63d35;
-      color: white;
-      font-family: "Archivo Black", sans-serif;
-      font-size: 1.1rem;
-      cursor: pointer;
-      box-shadow: 0 15px 35px rgba(0,0,0,.25);
-      transition: .25s;
-    }
-
-    .start-button:hover {
-      transform: translate(-50%, -50%) scale(1.05);
-    }
-
-    .video-hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .video-hero video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .video-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,.35);
-    }
-
-    .scroll-indicator {
-      position: absolute;
-      bottom: 35px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: white;
-      font-size: .9rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      font-weight: 700;
-      animation: bounce 1.8s infinite;
-    }
-
-    @keyframes bounce {
-      0%,20%,50%,80%,100% {
-        transform: translate(-50%,0);
-      }
-
-      40% {
-        transform: translate(-50%,-12px);
-      }
-
-      60% {
-        transform: translate(-50%,-6px);
-      }
-    }
-
     :root {
       --bg: #f1dfc2;
       --paper: #fff8e8;
@@ -128,9 +61,91 @@
       margin: 0;
     }
 
+    strong {
+      font-weight: 900;
+      color: var(--red-dark);
+    }
+
     .wrap {
       width: min(var(--max), calc(100% - 42px));
       margin: 0 auto;
+    }
+
+    .video-hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .video-hero video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at center, rgba(0,0,0,0.10), rgba(0,0,0,0.68)),
+        rgba(0,0,0,0.25);
+      z-index: 1;
+    }
+
+    .start-button {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 18px 34px;
+      border: none;
+      border-radius: 18px;
+      background: var(--red);
+      color: white;
+      font-family: "Archivo Black", sans-serif;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 15px 35px rgba(0,0,0,.25);
+      transition: .25s;
+      z-index: 2;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    .start-button:hover {
+      transform: translate(-50%, -50%) scale(1.05);
+      background: var(--red-dark);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 35px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: .9rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      animation: bounce 1.8s infinite;
+      z-index: 2;
+    }
+
+    @keyframes bounce {
+      0%,20%,50%,80%,100% {
+        transform: translate(-50%,0);
+      }
+
+      40% {
+        transform: translate(-50%,-12px);
+      }
+
+      60% {
+        transform: translate(-50%,-6px);
+      }
     }
 
     header {
@@ -202,7 +217,7 @@
       position: absolute;
       right: 0;
       top: 58px;
-      width: min(260px, calc(100vw - 42px));
+      width: min(280px, calc(100vw - 42px));
       padding: 12px;
       background: rgba(255, 248, 232, 0.98);
       border: 1px solid rgba(118, 35, 31, 0.22);
@@ -330,6 +345,10 @@
       padding: 32px 34px;
     }
 
+    .text-card + .text-card {
+      margin-top: 22px;
+    }
+
     .text-card p,
     .story-copy p,
     .note-card p,
@@ -397,13 +416,6 @@
       border-top: 1px solid rgba(118, 35, 31, 0.09);
     }
 
-    .definition-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-      max-width: 980px;
-    }
-
     .participation-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -468,10 +480,6 @@
       font-style: italic;
     }
 
-    .note-card {
-      padding: 28px;
-    }
-
     .soft-band {
       padding: 56px 0;
       background: var(--red-dark);
@@ -492,9 +500,9 @@
     }
 
     .parisi-note {
-      max-width: 920px;
+      max-width: 980px;
       margin-top: 24px;
-      padding: 28px 30px;
+      padding: 30px 32px;
       background: rgba(118, 35, 31, 0.08);
       border: 1px solid rgba(118, 35, 31, 0.26);
       border-left: 7px solid var(--red);
@@ -509,6 +517,17 @@
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 0.08em;
+    }
+
+    .parisi-note a {
+      color: var(--red-dark);
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
+
+    .parisi-note a:hover {
+      color: var(--red);
     }
 
     .region-tools {
@@ -650,6 +669,10 @@
       line-height: 1.65;
     }
 
+    .method-card strong {
+      color: var(--paper);
+    }
+
     .method-card ul {
       margin: 18px 0 0;
       padding-left: 18px;
@@ -657,46 +680,6 @@
 
     .method-card li + li {
       margin-top: 8px;
-    }
-
-    .video-final {
-      padding: 90px 0;
-      background: var(--black);
-      color: var(--paper);
-    }
-
-    .video-final-card {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 34px;
-      border-radius: 30px;
-      background: rgba(255, 248, 232, 0.06);
-      border: 1px solid rgba(255, 248, 232, 0.16);
-      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
-      text-align: center;
-    }
-
-    .video-final h2 {
-      color: var(--paper);
-      font-size: clamp(2rem, 5vw, 4rem);
-      margin-bottom: 18px;
-    }
-
-    .video-final p {
-      max-width: 720px;
-      margin: 0 auto 28px;
-      color: rgba(255, 248, 232, 0.75);
-      font-family: "Source Serif 4", Georgia, serif;
-      font-size: 1.14rem;
-      line-height: 1.65;
-    }
-
-    .video-cierre {
-      width: 100%;
-      display: block;
-      border-radius: 22px;
-      border: 1px solid rgba(255, 248, 232, 0.16);
-      background: #000;
     }
 
     footer {
@@ -708,10 +691,6 @@
     }
 
     @media (max-width: 900px) {
-      .definition-grid {
-        grid-template-columns: 1fr;
-      }
-
       .chart-frame,
       .chart-frame.tall {
         height: 620px;
@@ -727,6 +706,15 @@
         width: min(100% - 28px, var(--max));
       }
 
+      .video-hero {
+        height: 82vh;
+      }
+
+      .start-button {
+        font-size: 0.95rem;
+        padding: 15px 24px;
+      }
+
       .hero {
         padding: 66px 0;
       }
@@ -737,7 +725,6 @@
 
       .text-card,
       .story-copy,
-      .note-card,
       .region-panel,
       .region-copy,
       .method-card,
@@ -759,23 +746,31 @@
       .participation-grid {
         grid-template-columns: 1fr;
       }
-
-      .video-final {
-        padding: 62px 0;
-      }
-
-      .video-final-card {
-        padding: 22px;
-        border-radius: 24px;
-      }
     }
   </style>
 </head>
 
 <body>
+  <section class="video-hero" id="inicio">
+    <video autoplay muted loop playsinline>
+      <source src="videos/intro.mp4" type="video/mp4">
+      Tu navegador no puede reproducir este video.
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <a class="start-button" href="#hero">
+      Comenzar
+    </a>
+
+    <div class="scroll-indicator">
+      Desliza
+    </div>
+  </section>
+
   <header>
     <div class="wrap topbar">
-      <a class="brand" href="#">ANÚLEMELO</a>
+      <a class="brand" href="#inicio">ANÚLEMELO</a>
 
       <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
         <span></span>
@@ -784,6 +779,8 @@
       </button>
 
       <nav class="site-nav" id="siteNav" aria-label="Navegación principal">
+        <a href="#pregunta">Enfoque</a>
+        <a href="#recorrido">Recorrido</a>
         <a href="#nacional">Datos</a>
         <a href="#vueltas">Segunda vuelta</a>
         <a href="#polarizacion">Oferta</a>
@@ -795,17 +792,18 @@
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero" id="hero">
       <div class="wrap hero-inner">
-        <div class="kicker">Reportaje visual · Elecciones presidenciales 1989–2025</div>
+        <div class="kicker">Reportaje visual · Elecciones presidenciales <strong>1989–2025</strong></div>
 
         <h1>El voto que no elige presidente</h1>
 
         <p>
           En Chile, los votos nulos y blancos suelen quedar al margen de la noche electoral.
           No entregan una candidatura ganadora ni se transforman en representación. Pero cuando
-          aumentan, especialmente bajo voto obligatorio y en una segunda vuelta marcada por polos
-          opuestos, ayudan a mirar la distancia entre una parte del electorado y la oferta presidencial.
+          aumentan, especialmente bajo <strong>voto obligatorio</strong> y en una segunda vuelta marcada
+          por <strong>polos opuestos</strong>, ayudan a mirar la distancia entre una parte del electorado
+          y la oferta presidencial.
         </p>
       </div>
     </section>
@@ -815,11 +813,23 @@
         <div class="section-head">
           <span class="section-title">¿Vale la pena observar el voto nulo?</span>
           <p class="lead">
-            Este proyecto no busca interpretar el significado del voto nulo, sino comprender su comportamiento: ¿por qué aumenta en algunas
-            elecciones y disminuye en otras? Para responder esas preguntas, primero es necesario observar el contexto de cada proceso electoral.
-            Ese contexto reúne distintos factores que inciden directamente en la proporción de votos nulos y blancos: el nivel de polarización política,
-            la oferta presidencial, si se trata de una primera o segunda vuelta, el sistema electoral vigente y las diferencias geográficas.
-            Pero partamos por el principio.
+            Este proyecto no busca definir qué significa cada voto nulo o blanco, ni asumir que todos expresan
+            lo mismo. Su objetivo es más acotado: observar <strong>cuándo estos votos crecen</strong>,
+            cuándo se mantienen bajos y en qué contextos se vuelven más visibles dentro de una elección presidencial.
+          </p>
+        </div>
+
+        <div class="text-card">
+          <p>
+            Para eso, el análisis mira distintas condiciones que pueden acompañar su aumento: el sistema electoral
+            vigente, la diferencia entre <strong>primera y segunda vuelta</strong>, el nivel de polarización de la
+            oferta presidencial, la cantidad de alternativas disponibles y las diferencias territoriales.
+          </p>
+
+          <p>
+            Más que entregar una causa única, este reportaje busca seguir una pista: en qué momentos el voto que
+            no elige presidente deja de ser un dato marginal y empieza a decir algo sobre la relación entre
+            <strong>participación</strong>, <strong>representación</strong> y <strong>oferta política</strong>.
           </p>
         </div>
 
@@ -828,26 +838,45 @@
             <img
               src="imagenes/voto nulo.jpg.jpeg"
               alt="Papeleta de votación marcada como voto nulo">
+
             <figcaption>
               Un voto nulo no se contabiliza como preferencia para ninguna candidatura,
               pero sigue formando parte de la participación electoral.
             </figcaption>
           </figure>
         </div>
+      </div>
+    </section>
+
+    <section id="recorrido">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-title">El recorrido del nulo</span>
+          <p class="lead">
+            En <strong>1988</strong>, el triunfo del No marcó el inicio del retorno de Chile a la democracia.
+            Desde entonces, los votos nulos y blancos han ocupado un lugar persistente dentro de los procesos
+            electorales.
+          </p>
+        </div>
 
         <div class="text-card">
           <p>
-            El voto nulo y blanco no sube siempre por las mismas razones. Tampoco basta con decir
-            que aumenta porque hay segunda vuelta. En 2025, el escenario fue más específico:
-            voto obligatorio, una competencia entre polos opuestos y un llamado político explícito
-            a votar nulo o blanco.
+            No suelen protagonizar los titulares de la noche electoral, pero aparecen elección tras elección
+            como una parte del electorado que participa sin transformarse en apoyo válido para una candidatura.
           </p>
 
           <p>
-            Por eso, el foco está en mirar cuándo crece este voto, dónde se concentra y qué condiciones
-            lo vuelven más visible. No reemplaza al resultado presidencial, pero ayuda a mirar una zona
-            incómoda de la elección: personas que participaron sin apoyar válidamente a ninguna de las
-            opciones disponibles.
+            Detrás de esos votos pueden convivir motivaciones muy distintas. Hay personas que se equivocan al
+            marcar la papeleta, electores indecisos, ciudadanos indiferentes frente a la elección y también
+            votantes que tienen una postura clara, pero consideran que ninguna candidatura representa sus preferencias.
+          </p>
+
+          <p>
+            Por eso, este reportaje no trata el voto nulo y blanco como una sola voz política. La pregunta no es
+            solo cuánto pesa, sino <strong>cuándo deja de ser marginal</strong>. Su recorrido entre
+            <strong>1989 y 2025</strong> permite mirar cambios en el sistema electoral, en la participación,
+            en la oferta presidencial y en la forma en que distintos territorios reaccionan ante elecciones
+            obligatorias, estrechas o polarizadas.
           </p>
         </div>
       </div>
@@ -856,32 +885,25 @@
     <section id="didactico">
       <div class="wrap">
         <div class="section-head">
-          <span class="section-title">Qué estamos contando</span>
+          <span class="section-title">Antes de mirar los datos</span>
           <p class="lead">
-            Para leer esta historia hay que separar los votos válidos, los votos blancos y los votos nulos.
-            Los dos últimos participan del acto electoral, pero quedan fuera de la competencia válida por
-            la presidencia.
+            En este reportaje, el foco está puesto en los votos que no se transforman en apoyo válido
+            para una candidatura presidencial. Por eso, cuando hablamos de <strong>“voto que no elige presidente”</strong>,
+            nos referimos a la suma de <strong>votos nulos y blancos</strong>.
           </p>
         </div>
 
-        <div class="definition-grid">
-          <div class="note-card">
-            <h3>Voto blanco</h3>
-            <p>
-              Es una papeleta sin preferencia marcada. Puede expresar ausencia de opción, distancia con
-              la oferta o simplemente una decisión de no elegir. En el conteo final no se asigna a ninguna
-              candidatura.
-            </p>
-          </div>
+        <div class="text-card">
+          <p>
+            El voto blanco corresponde a una papeleta sin preferencia marcada. El voto nulo, en cambio,
+            es una papeleta que no puede ser contada válidamente para una candidatura, por ejemplo por
+            marcas múltiples o porque la preferencia no queda clara.
+          </p>
 
-          <div class="note-card">
-            <h3>Voto nulo</h3>
-            <p>
-              Es una papeleta que no puede ser considerada válida para una candidatura. Puede ocurrir por
-              marcas múltiples, ambigüedad o intervención del voto. Su significado político no es automático:
-              depende del contexto.
-            </p>
-          </div>
+          <p>
+            Ninguno de los dos permite saber por sí solo qué pensó cada elector. Por eso, aquí no se leen
+            como una opinión única, sino como una señal que cambia de intensidad según el contexto electoral.
+          </p>
         </div>
       </div>
     </section>
@@ -909,8 +931,8 @@
 
             <p>
               La lectura cambia cuando el sistema electoral vuelve a empujar a más personas hacia las urnas.
-              Con voto obligatorio, la pregunta ya no es solo quién gana, sino también cuántas personas
-              participan sin transformar su voto en apoyo válido a una candidatura.
+              Con <strong>voto obligatorio</strong>, la pregunta ya no es solo quién gana, sino también cuántas
+              personas participan sin transformar su voto en apoyo válido a una candidatura.
             </p>
           </div>
 
@@ -923,7 +945,7 @@
           </div>
 
           <p class="caption">
-            Evolución nacional de votos nulos y blancos en elecciones presidenciales chilenas entre 1989 y 2025.
+            Evolución nacional de votos nulos y blancos en elecciones presidenciales chilenas entre <strong>1989 y 2025</strong>.
           </p>
         </article>
       </div>
@@ -944,17 +966,18 @@
             <h3>Del padrón congelado al voto obligatorio</h3>
 
             <p>
-              Entre 1989 y 2009, la participación electoral chilena se mantuvo relativamente estable
-              en cantidad de votantes, aunque la población habilitada para sufragar seguía creciendo.
-              El sistema de inscripción voluntaria y voto obligatorio produjo un padrón cada vez más
-              envejecido y congelado: votaban, en gran parte, quienes ya estaban inscritos.
+              Entre <strong>1989 y 2009</strong>, la participación electoral chilena se mantuvo relativamente
+              estable en cantidad de votantes, aunque la población habilitada para sufragar seguía creciendo.
+              El sistema de inscripción voluntaria y voto obligatorio produjo un padrón cada vez más envejecido
+              y congelado: votaban, en gran parte, quienes ya estaban inscritos.
             </p>
 
             <p>
               Ese escenario abrió paso a la inscripción automática y al voto voluntario. Pero el cambio tuvo
-              un costo inmediato: en la primera vuelta presidencial de 2013, la participación cayó
-              a 49,4%, cerca de 14 puntos porcentuales menos que en la presidencial de 2009. Durante ese
-              ciclo, la participación presidencial solo volvió a superar el 50% en la segunda vuelta de 2021.
+              un costo inmediato: en la primera vuelta presidencial de <strong>2013</strong>, la participación
+              cayó a <strong>49,4%</strong>, cerca de <strong>14 puntos porcentuales</strong> menos que en la
+              presidencial de <strong>2009</strong>. Durante ese ciclo, la participación presidencial solo volvió
+              a superar el <strong>50%</strong> en la segunda vuelta de <strong>2021</strong>.
             </p>
 
             <div class="participation-grid">
@@ -979,16 +1002,16 @@
 
             <p>
               La respuesta institucional llegó con el retorno del voto obligatorio con inscripción automática
-              en 2022. La participación en 2025 alcanzó un 85,4%, mostrando el impacto de la obligatoriedad sobre
-              el padrón. Ese aumento también cambió la escala de los votos nulos y blancos: al entrar más
-              personas al sistema, creció también el volumen de votos que no se transforman en una preferencia válida.
+              en <strong>2022</strong>. La participación en <strong>2025</strong> alcanzó un <strong>85,4%</strong>,
+              mostrando el impacto de la obligatoriedad sobre el padrón. Ese aumento también cambió la escala
+              de los votos nulos y blancos: al entrar más personas al sistema, creció también el volumen de votos
+              que no se transforman en una preferencia válida.
             </p>
 
             <p>
-              En 2025, la segunda vuelta volvió a mostrar esa tensión. El voto nulo y blanco aumentó en
-              un escenario de participación obligatoria y competencia entre polos opuestos. Por eso, el
-              fenómeno debe leerse en dos niveles: como porcentaje y como volumen dentro de un padrón
-              mucho más amplio.
+              En <strong>2025</strong>, la segunda vuelta volvió a mostrar esa tensión. El voto nulo y blanco aumentó
+              en un escenario de participación obligatoria y competencia entre polos opuestos. Por eso, el fenómeno
+              debe leerse en dos niveles: como porcentaje y como volumen dentro de un padrón mucho más amplio.
             </p>
           </div>
 
@@ -1028,24 +1051,24 @@
             </p>
 
             <p>
-              Por eso, el punto no está solo en que la oferta se reduzca a dos candidaturas. En 2025,
+              Por eso, el punto no está solo en que la oferta se reduzca a dos candidaturas. En <strong>2025</strong>,
               lo relevante fue que esa reducción concentró la decisión entre dos polos ideológicos opuestos.
-              Para una parte del electorado, especialmente quienes habían apoyado opciones fuera de esos
-              polos en primera vuelta, el balotaje pudo sentirse menos como una elección cercana y más como
-              una disyuntiva forzada.
+              Para una parte del electorado, especialmente quienes habían apoyado opciones fuera de esos polos
+              en primera vuelta, el balotaje pudo sentirse menos como una elección cercana y más como una disyuntiva
+              forzada.
             </p>
 
             <p>
-              Bajo voto obligatorio, esa tensión se vuelve más visible. Personas que quizás habrían optado
-              por no participar deben concurrir a votar; y dentro de la urna, algunas no convierten su
+              Bajo <strong>voto obligatorio</strong>, esa tensión se vuelve más visible. Personas que quizás habrían
+              optado por no participar deben concurrir a votar; y dentro de la urna, algunas no convierten su
               participación en apoyo válido a ninguna candidatura.
             </p>
 
             <p>
-              En 2025, además, ese escenario se cruzó con el llamado del Partido de la Gente a votar nulo
-              o blanco. El resultado nacional no muestra una transferencia completa desde la votación de
-              Franco Parisi, pero sí permite preguntarse si esa señal fue más intensa en territorios donde
-              su candidatura había tenido mayor fuerza.
+              En <strong>2025</strong>, además, ese escenario se cruzó con el llamado del Partido de la Gente a votar
+              nulo o blanco. El resultado nacional no muestra una transferencia completa desde la votación de
+              Franco Parisi, pero sí permite observar si esa señal fue más intensa en territorios donde su candidatura
+              había tenido mayor fuerza.
             </p>
           </div>
 
@@ -1070,8 +1093,8 @@
           <span class="section-title">04 • Oferta presidencial</span>
           <p class="lead">
             La polarización no explica por sí sola el voto nulo y blanco, pero ayuda a observar el
-            clima de competencia en que ese voto aparece. En 2025, la segunda vuelta concentró la
-            decisión entre proyectos ubicados en polos opuestos.
+            clima de competencia en que ese voto aparece. En <strong>2025</strong>, la segunda vuelta concentró
+            la decisión entre proyectos ubicados en polos opuestos.
           </p>
         </div>
 
@@ -1082,7 +1105,7 @@
               alt="Jeannette Jara y José Antonio Kast durante la campaña presidencial">
 
             <figcaption>
-              La segunda vuelta de 2025 enfrentó a dos candidaturas ubicadas en polos opuestos del espectro político.
+              La segunda vuelta de <strong>2025</strong> enfrentó a dos candidaturas ubicadas en polos opuestos del espectro político.
             </figcaption>
           </figure>
         </div>
@@ -1131,7 +1154,7 @@
         <span class="section-title">El dato cambia cuando baja al territorio</span>
         <p>
           El promedio nacional puede esconder diferencias regionales. Algunas zonas muestran aumentos
-          más intensos que otras, especialmente cuando se mira la segunda vuelta de 2025.
+          más intensos que otras, especialmente cuando se mira la segunda vuelta de <strong>2025</strong>.
         </p>
       </div>
     </section>
@@ -1152,8 +1175,8 @@
             <h3>Un país, varias intensidades</h3>
 
             <p>
-              La segunda vuelta de 2025 muestra que el voto nulo y blanco no crece con la misma fuerza
-              en todo Chile. Algunas regiones del norte aparecen con niveles más altos, mientras que
+              La segunda vuelta de <strong>2025</strong> muestra que el voto nulo y blanco no crece con la misma
+              fuerza en todo Chile. Algunas regiones del norte aparecen con niveles más altos, mientras que
               otras zonas muestran aumentos más moderados.
             </p>
 
@@ -1180,13 +1203,49 @@
 
         <div class="parisi-note">
           <span>Lectura territorial</span>
-          <h3>Una pista que queda abierta</h3>
+          <h3>El llamado al nulo no pesó igual en todo el territorio</h3>
 
           <p>
-            En 2025, el llamado del Partido de la Gente a votar nulo o blanco no tuvo una
-            traducción completa a nivel nacional. El mapa, sin embargo, deja una pregunta
-            para mirar después: si esa señal fue más visible en zonas donde Franco Parisi
-            había tenido mayor fuerza en primera vuelta.
+            En <strong>2025</strong>, el voto nulo y blanco no solo aumentó en un balotaje polarizado.
+            También apareció después de un llamado político explícito: tras quedar fuera de la segunda vuelta,
+            Franco Parisi y el Partido de la Gente llamaron a votar nulo o blanco. La señal era relevante porque
+            Parisi había conseguido <strong>2.552.649 votos</strong> en primera vuelta, equivalentes al
+            <strong>19,71% nacional</strong>.
+          </p>
+
+          <p>
+            Pero esa apuesta no tuvo el efecto que el PDG esperaba. Según informó
+            <a href="https://www.biobiochile.cl/noticias/nacional/chile/2025/12/14/no-hicieron-caso-a-parisi-llamado-a-votar-nulo-quedo-en-el-olvido-y-no-superaron-los-800-mil-votos.shtml" target="_blank" rel="noopener noreferrer"><strong>Bío Bío</strong></a>,
+            en la consulta interna del partido la opción nulo o blanco habría ganado con un <strong>78%</strong>,
+            aunque no se transparentaron las cifras detrás de esa votación. En la elección real, el resultado fue
+            mucho menor: los votos nulos llegaron a <strong>5,84%</strong> y los blancos a <strong>1,23%</strong>,
+            sumando <strong>7,07%</strong> a nivel nacional.
+          </p>
+
+          <p>
+            Por eso, Parisi se equivocó al medir el alcance de su influencia electoral. Su llamado no ordenó
+            a sus votantes como un bloque nacional, pero eso no significa que haya sido irrelevante en todas partes.
+            Para observar mejor ese matiz, conviene mirar el territorio.
+          </p>
+
+          <p>
+            Ahí aparece Antofagasta como un caso clave. En primera vuelta, Franco Parisi obtuvo en esa región
+            <strong>137.597 votos</strong>, equivalentes al <strong>34,99%</strong>: fue su mejor resultado regional
+            y quedó por sobre Jeannette Jara y José Antonio Kast. En la Región Metropolitana, en cambio, alcanzó
+            <strong>710.928 votos</strong>, pero eso representó solo el <strong>14,26%</strong> de los votos regionales.
+          </p>
+
+          <p>
+            La diferencia ayuda a leer la segunda vuelta. Antofagasta terminó siendo la región con mayor proporción
+            de votos nulos y blancos: <strong>9,04% nulos</strong> y <strong>1,44% blancos</strong>, es decir,
+            cerca de <strong>10,5%</strong> del total emitido. En la Región Metropolitana, los nulos llegaron a
+            <strong>5,14%</strong> y los blancos a <strong>1,21%</strong>, sumando cerca de <strong>6,35%</strong>.
+          </p>
+
+          <p>
+            El contraste no permite afirmar que todo el voto Parisi se transformó en voto nulo o blanco. Pero sí
+            muestra una coincidencia territorial relevante: donde Parisi tuvo mayor arraigo en primera vuelta,
+            el voto que no eligió presidente apareció con más intensidad después del llamado del PDG.
           </p>
 
           <figure class="story-image">
@@ -1195,7 +1254,7 @@
               alt="Franco Parisi durante un acto de campaña">
 
             <figcaption>
-              En la segunda vuelta de 2025, el Partido de la Gente llamó a votar nulo o blanco tras la exclusión de Franco Parisi del balotaje.
+              En <strong>2025</strong>, Antofagasta combinó una alta votación de Franco Parisi en primera vuelta con el mayor porcentaje regional de votos nulos y blancos en segunda vuelta.
             </figcaption>
           </figure>
         </div>
@@ -1284,23 +1343,24 @@
 
             <p>
               El caso peruano permite observar ese límite. En la primera vuelta presidencial de Perú,
-              los votos nulos y blancos sumaron el 17,01% del total de votos emitidos. Esa cifra muestra
-              que los votos no válidos pueden transformarse en una señal electoral relevante cuando
-              alcanzan un volumen alto dentro de la participación total.
+              los votos nulos y blancos sumaron el <strong>17,01%</strong> del total de votos emitidos.
+              Esa cifra muestra que los votos no válidos pueden transformarse en una señal electoral relevante
+              cuando alcanzan un volumen alto dentro de la participación total.
             </p>
 
             <p>
-              En la segunda vuelta presidencial de 2026, Keiko Fujimori obtuvo 50,135% de los votos
-              válidos y superó a Roberto Sánchez por 49.641 votos. En una elección definida por una
-              distancia tan reducida, cada bloque electoral, cada territorio y cada voto que queda fuera
-              de la competencia válida modifica la lectura del resultado.
+              En la segunda vuelta presidencial de <strong>2026</strong>, Keiko Fujimori obtuvo
+              <strong>50,135%</strong> de los votos válidos y superó a Roberto Sánchez por
+              <strong>49.641 votos</strong>. En una elección definida por una distancia tan reducida,
+              cada bloque electoral, cada territorio y cada voto que queda fuera de la competencia válida
+              modifica la lectura del resultado.
             </p>
 
             <p>
-              Chile 2025 no se ubica en ese mismo escenario. El voto nulo y blanco fue políticamente
-              visible, sobre todo por el llamado del Partido de la Gente a no apoyar a ninguna candidatura
-              en segunda vuelta. Sin embargo, esa señal no operó como una fuerza capaz de definir por sí
-              sola el resultado nacional.
+              Chile <strong>2025</strong> no se ubica en ese mismo escenario. El voto nulo y blanco fue
+              políticamente visible, sobre todo por el llamado del Partido de la Gente a no apoyar a ninguna
+              candidatura en segunda vuelta. Sin embargo, esa señal no operó como una fuerza capaz de definir
+              por sí sola el resultado nacional.
             </p>
 
             <p>
@@ -1326,30 +1386,11 @@
           </p>
 
           <ul>
-            <li>Periodo observado: elecciones presidenciales chilenas entre 1989 y 2025.</li>
+            <li>Periodo observado: elecciones presidenciales chilenas entre <strong>1989 y 2025</strong>.</li>
             <li>Unidad de análisis: año electoral, vuelta y región.</li>
             <li>Indicador principal: porcentaje de votos nulos y blancos sobre votos emitidos.</li>
             <li>Fuentes base: SERVEL, Tribunal Calificador de Elecciones, Biblioteca del Congreso Nacional y registros históricos del Ministerio del Interior para los años más antiguos.</li>
           </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="video-final" id="video-final">
-      <div class="wrap">
-        <div class="video-final-card">
-          <h2>El voto que deja una señal</h2>
-
-          <p>
-            Al final, el voto nulo no solo aparece como ausencia de preferencia.
-            También puede leerse como una señal de distancia, tensión o rechazo frente
-            a una oferta presidencial que no siempre logra representar a todos quienes participan.
-          </p>
-
-          <video controls class="video-cierre">
-            <source src="videos/intro.mp4" type="video/mp4">
-            Tu navegador no puede reproducir este video.
-          </video>
         </div>
       </div>
     </section>
