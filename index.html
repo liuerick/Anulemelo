@@ -93,59 +93,64 @@
         radial-gradient(circle at center, rgba(0,0,0,0.10), rgba(0,0,0,0.68)),
         rgba(0,0,0,0.25);
       z-index: 1;
+      pointer-events: none;
+    }
+
+    .play-button {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 92px;
+      height: 92px;
+      border: 2px solid rgba(255, 255, 255, 0.72);
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.46);
+      color: white;
+      font-size: 2.3rem;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 3;
+      display: grid;
+      place-items: center;
+      padding-left: 6px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+      transition: .25s;
+    }
+
+    .play-button:hover {
+      transform: translate(-50%, -50%) scale(1.08);
+      background: rgba(182, 61, 53, 0.72);
+    }
+
+    .play-button.hidden {
+      display: none;
     }
 
     .start-button {
       position: absolute;
       left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      padding: 18px 34px;
+      bottom: 34px;
+      transform: translateX(-50%);
+      padding: 15px 30px;
       border: none;
-      border-radius: 18px;
+      border-radius: 999px;
       background: var(--red);
       color: white;
       font-family: "Archivo Black", sans-serif;
-      font-size: 1.1rem;
+      font-size: 0.98rem;
       cursor: pointer;
       box-shadow: 0 15px 35px rgba(0,0,0,.25);
       transition: .25s;
-      z-index: 2;
+      z-index: 3;
       text-transform: uppercase;
       letter-spacing: -0.02em;
     }
 
     .start-button:hover {
-      transform: translate(-50%, -50%) scale(1.05);
+      transform: translateX(-50%) scale(1.05);
       background: var(--red-dark);
-    }
-
-    .scroll-indicator {
-      position: absolute;
-      bottom: 35px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: white;
-      font-size: .9rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      font-weight: 700;
-      animation: bounce 1.8s infinite;
-      z-index: 2;
-    }
-
-    @keyframes bounce {
-      0%,20%,50%,80%,100% {
-        transform: translate(-50%,0);
-      }
-
-      40% {
-        transform: translate(-50%,-12px);
-      }
-
-      60% {
-        transform: translate(-50%,-6px);
-      }
     }
 
     header {
@@ -331,7 +336,6 @@
 
     .text-card,
     .story-card,
-    .note-card,
     .region-panel,
     .region-display {
       background: rgba(255, 248, 232, 0.84);
@@ -351,7 +355,6 @@
 
     .text-card p,
     .story-copy p,
-    .note-card p,
     .region-copy p,
     .parisi-note p {
       color: var(--muted);
@@ -362,7 +365,6 @@
 
     .text-card p + p,
     .story-copy p + p,
-    .note-card p + p,
     .region-copy p + p,
     .parisi-note p + p {
       margin-top: 16px;
@@ -378,7 +380,6 @@
     }
 
     .story-copy h3,
-    .note-card h3,
     .region-copy h3,
     .parisi-note h3 {
       margin-bottom: 18px;
@@ -497,6 +498,10 @@
       font-family: "Source Serif 4", Georgia, serif;
       font-size: 1.16rem;
       line-height: 1.65;
+    }
+
+    .soft-band strong {
+      color: var(--paper);
     }
 
     .parisi-note {
@@ -710,6 +715,12 @@
         height: 82vh;
       }
 
+      .play-button {
+        width: 78px;
+        height: 78px;
+        font-size: 2rem;
+      }
+
       .start-button {
         font-size: 0.95rem;
         padding: 15px 24px;
@@ -752,20 +763,20 @@
 
 <body>
   <section class="video-hero" id="inicio">
-    <video autoplay muted loop playsinline>
+    <video id="introVideo" playsinline>
       <source src="videos/intro.mp4" type="video/mp4">
       Tu navegador no puede reproducir este video.
     </video>
 
-    <div class="video-overlay"></div>
+    <div class="video-overlay" id="videoOverlay"></div>
+
+    <button class="play-button" id="playButton" aria-label="Reproducir video">
+      ▶
+    </button>
 
     <a class="start-button" href="#hero">
       Comenzar
     </a>
-
-    <div class="scroll-indicator">
-      Desliza
-    </div>
   </section>
 
   <header>
@@ -1533,6 +1544,9 @@
     const menuToggle = document.getElementById("menuToggle");
     const siteNav = document.getElementById("siteNav");
 
+    const introVideo = document.getElementById("introVideo");
+    const playButton = document.getElementById("playButton");
+
     let activeZone = "Todas";
     let activeRegion = "Antofagasta";
 
@@ -1580,6 +1594,25 @@
 
       renderRegions();
     }
+
+    playButton.addEventListener("click", () => {
+      introVideo.play();
+      playButton.classList.add("hidden");
+    });
+
+    introVideo.addEventListener("pause", () => {
+      playButton.classList.remove("hidden");
+    });
+
+    introVideo.addEventListener("ended", () => {
+      playButton.classList.remove("hidden");
+    });
+
+    introVideo.addEventListener("click", () => {
+      if (!introVideo.paused) {
+        introVideo.pause();
+      }
+    });
 
     regionSearch.addEventListener("input", renderRegions);
 
